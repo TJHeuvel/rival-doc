@@ -1,9 +1,5 @@
----
-layout: default
-title: Ignore Collisions Tag
-parent: Tutorial
-nav_order: 5
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Ignore Collisions Tag
 

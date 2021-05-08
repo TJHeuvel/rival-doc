@@ -1,9 +1,5 @@
----
-layout: default
-title: Character Hits
-parent: Tutorial
-nav_order: 7
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Character Hits
 

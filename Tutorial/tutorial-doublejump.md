@@ -1,9 +1,5 @@
----
-layout: default
-title: Double Jump
-parent: Tutorial
-nav_order: 3
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Double Jump
 

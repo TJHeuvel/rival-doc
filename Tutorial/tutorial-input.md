@@ -1,9 +1,5 @@
----
-layout: default
-title: Input Handling
-parent: Tutorial
-nav_order: 1.2
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Input Handling
 

@@ -1,9 +1,5 @@
----
-layout: default
-title: Camera Handling
-parent: Tutorial
-nav_order: 1.3
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Camera Handling
 

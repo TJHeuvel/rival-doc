@@ -1,9 +1,5 @@
----
-layout: default
-title: Character Creation
-parent: Tutorial
-nav_order: 1.1
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Character Creation
 

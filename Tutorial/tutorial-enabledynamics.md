@@ -1,9 +1,5 @@
----
-layout: default
-title: Enable Dynamics
-parent: Tutorial
-nav_order: 7
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Enable Dynamics
 

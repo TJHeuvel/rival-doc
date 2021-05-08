@@ -1,9 +1,5 @@
----
-layout: default
-title: Sprint
-parent: Tutorial
-nav_order: 2
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Sprint
 

@@ -1,9 +1,5 @@
----
-layout: default
-title: Friction Surface
-parent: Tutorial
-nav_order: 6
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Friction Surface
 

@@ -1,9 +1,5 @@
----
-layout: default
-title: Project Setup
-parent: Tutorial
-nav_order: 1
----
+
+[Tutorial](../tutorial)
 
 # Tutorial - Project Setup
 
