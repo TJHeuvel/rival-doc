@@ -12,3 +12,5 @@ In this tutorial, we will go through the entire process of creating a new charac
 The completed tutorial project can be downloaded here, but **you will need to import Rival** into the project for this to work:
 
 [Download](../Downloads/Rival_Tutorial.zip)
+
+This tutorial is verified with Unity 2020.3

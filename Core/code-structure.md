@@ -5,7 +5,6 @@ parent: Core
 nav_order: 2
 ---
 
-A
 
 # Character Code Structure
 
@@ -59,7 +58,7 @@ The `MyCharacterJob` creates the core character update loop:
 
 ### Processor Update
 
-`MyCharacterProcessor.OnUpdate` will call various core character update steps, as well as a `HandleCharacterControl` function where default movement behaviour is implemented. It is absolutely necessary that all the calls to `KinematicCharacterUtilities.(...)` done here happen in that exact order. Otherwise, you may start seeing bugs. However, you are free to add additional calls to your own functions before, after, or in-between these. See [Utilities](utilities) for an in-depth description of these calls.
+`MyCharacterProcessor.OnUpdate` will call various core character update steps, as well as a `HandleCharacterControl` function where default velocity & rotation control behaviour is implemented. It is absolutely necessary that all the calls to `KinematicCharacterUtilities.(...)` done here happen in that exact order, even though some of them are optional and can be removed (the comments will tell you which ones). However, you are free to add additional calls to your own functions before, after, or in-between these. See [Utilities](utilities) for an in-depth description of these calls.
 
 ### Processor Callbacks
 
@@ -70,4 +69,4 @@ Here is a description of the processor callbacks:
 - `OverrideDynamicHitMasses`: Gives you an opportunity to modify the mass ratios between the character and another dynamic body when they are colliding. This is only called for characters that have [SimulatedDynamic](dynamic-body-interaction) set to true. This function can be left empty if you do not wish to modify anything.
 - `ProjectVelocityOnHits`: determines how the character velocity gets projected on hits, based on all hits so far this frame. By default, we call `KinematicCharacterUtilities.DefaultMethods.ProjectVelocityOnHits`. This is callback mostly for advanced usage, and it is recommended not to change it unless you wish to make your character bounce on certain surfaces, for example.
 
-It is recommended to carefully study & understand the "default methods" called here before attempting to modify them. Changing some of these things could break the character movement or have a negative impact on performance, especially for the default implementations of `OnMovementHit` and `ProjectVelocityOnHits`.
+It is recommended to carefully study & understand the "default methods" called here before attempting to modify them. **Changing some of these things could break the character movement** or have a negative impact on performance, especially for the default implementations of `OnMovementHit` and `ProjectVelocityOnHits`.

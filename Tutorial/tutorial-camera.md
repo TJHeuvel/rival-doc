@@ -12,7 +12,7 @@ Now we will set up a simple camera. You can start by downloading the Simple Came
 [Download](../Downloads/Rival_SimpleCamera.zip)
 
 We won't go over the camera code in detail, but here is a summary of how it works:
-- Since Unity's `Camera` component cannot be converted to DOTS yet, we need to come up with a way to keep the camera GameObject in the scen, but make it copy the transform of an Entity that represents the camera.
+- Since Unity's `Camera` component cannot be converted to DOTS yet, we need to come up with a way to keep the camera GameObject in the scene, but make it copy the transform of an Entity that represents the camera.
 - A `MainCameraSystem` will look for an entity that has the "MainCamera" component, and constantly copy its rotation to whatever Transform is assigned to `MainCameraSystem.CameraGameObjectTransform`.
 - The `RegisterAsMainCameraBehaviour` monobehaviour can be added to a GameObject with a `Camera` component to automatically assign it to `MainCameraSystem.CameraGameObjectTransform`
 - The `MainCameraAuthoring` component can be assigned to an Entity in a Subscene to mark it as the main camera on the Entities side

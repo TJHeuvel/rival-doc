@@ -52,6 +52,11 @@ public void OnMovementHit(
 }
 ```
 
+Here's a representation of what `CheckForSteppingUpHit` does. It casts the character shape up, forward, and then down in order to detect a valid step, and if it does, it moves the character upwards at the height of the step:
+
+![](../Images/howto_steppingup.png)
+
+
 ## Step Handling for Round-bottom Characters (Capsule, Sphere)
 
 Colliders that do not have a flat bottom are a special case when it comes to step handling. Cylinder or Box character shapes have a flat bottom, and therefore will only need the `CheckForSteppingUpHit` described above in order to work.
@@ -74,6 +79,11 @@ public bool IsGroundedOnHit(in BasicHit hit, int groundingEvaluationType)
         0.1f); // extra step checks distance
 }
 ```
+
+The `ExtraStepChecksDistance` parameter is used to determine the forward & backward distance of additional raycasts. It is useful to allow being grounded on steps that are not perfectly vertical. In the following image, the orange lines represent the `ExtraStepChecksDistance`, and the red lines are the raycasts done at that distance in order to try to detect valid ground:
+
+![](../Images/howto_stepgrounding.png)
+
 
 ## Final note
 

@@ -1,2 +1,0 @@
-# pstamand
-![](./Images/main.png)
