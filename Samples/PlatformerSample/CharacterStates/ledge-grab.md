@@ -1,5 +1,5 @@
 
 
-[Back to States](../character-and-character-states)
+[Back to Character](../character)
 
-# Ledge Grab
+# Platformer Sample - Ledge Grab

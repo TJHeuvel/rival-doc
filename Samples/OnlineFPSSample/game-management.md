@@ -1,12 +1,6 @@
----
-layout: default
-title: Game Initialization
-parent: Online FPS Sample
-grand_parent: Samples
-nav_order: 1
----
 
-# Game Initialization
+
+# OnlineFPS Sample - Game Management
 
 ## Connection Menu
 The `OnlineFPSMenu` scene contains a simple gameObject-based UI where you can either join an existing game, or host a new game. All logic for this menu is in `OnlineFPSMenuManager`.
@@ -24,3 +18,8 @@ Character spawning is handled bythe `CharacterSpawningSystem`. This waits for `C
 
 ## Client player & character setup
 The `ClientGameSystem` iterates on character & player entities that don't have any `IsInitialized` components. For uninitialized player entities, it adds a `OnlineFPSPlayerInputs` component to them, and sets that entity as the commands target entity. For uninitialized character entities, it spawns a gameObject-based nameplate over the character.
+
+## Disconnection
+In `ClientGameSystem`, when we detect that our `NetworkIdComponent` representing the connection to the server has disconnected (when there is a `NetworkStreamDisconnected` on that connection entity), we simply reload the menu scenes
+
+In `ServerGameSystem`, when we detect that a client connection has disconnected similarly, we go thorough all entities that have been registered as belonging to that connection in the `ConnectionOwnedEntity` DynamicBuffer on that connection entity, and we destroy them. That way, the Character and Player entities of disconnected clients get cleaned up.

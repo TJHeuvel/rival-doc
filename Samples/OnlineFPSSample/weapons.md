@@ -1,12 +1,6 @@
----
-layout: default
-title: Weapons
-parent: Online FPS Sample
-grand_parent: Samples
-nav_order: 4
----
 
-# Weapons
+
+# OnlineFPS Sample - Weapons
 
 ## Assigning a weapon to a character
 `CharacterSpawningSystem` handles spawning and assigning a weapon to a character when spawned.

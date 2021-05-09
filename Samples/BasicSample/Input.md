@@ -1,12 +1,6 @@
----
-layout: default
-title: Input
-parent: Basic Sample
-grand_parent: Samples
-nav_order: 2
----
 
-# Input
+
+# Basic Sample - Input
 
 `BasicPlayerInputsSystem` gathers input from Unity's input system, and writes those inputs to all `BasicPlayerInputs` components present in the world.
 

@@ -58,6 +58,6 @@ public class TutorialInputSystem : SystemBase
 
 If you press Play now, your character should be controllable using WASD to move, and Space to jump. You can play with the parameters under the `TutorialCharacterAuthoring` component add more colliders to your Subscene (walls, ramps, dynamic bodies, etc...) to try things out.
 
-For more information on the fixed-step input handling problem described in the comments over the jump handling, see [Input Handling](input-handling).
+For more information on the fixed-step input handling problem described in the comments over the jump handling, see [Input Handling](../How_to/input-handling).
 
 In a real project, you will surely want to handle input in a more complex way that will allow you to only apply inputs to a specific player-controlled character Entity, instead of applying input to ALL characters in the scene. The camera transform could also be represented by an Entity instead of just the GameObject camera. But since these things can be highly-specific to your game, Rival does not try to impose any particular way of handling them. You can look at the various sample projects in order to understand how this could be done.

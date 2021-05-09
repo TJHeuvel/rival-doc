@@ -1,12 +1,6 @@
----
-layout: default
-title: Camera
-parent: Basic Sample
-grand_parent: Samples
-nav_order: 4
----
 
-# Camera
+
+# Basic Sample - Camera
 
 The `OrbitCameraSystem` handles all camera logic. It gets its inputs from the `BasicPlayerInputs` component, and rotates/moves the camera accordingly.
 

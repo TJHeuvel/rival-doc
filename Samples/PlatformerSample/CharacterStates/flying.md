@@ -1,5 +1,9 @@
 
 
-[Back to States](../character-and-character-states)
+[Back to Character](../character)
 
-# Flying
+# Platformer Sample - Flying
+
+The `FlyingNoCollisionsState` allows the character to fly without any collisions. It handles turning off character collisions in its `OnStateEnter`, and turning them back on in its `OnStateExit`. The movement is handled by simply moving the character `Translation` directly.
+
+This state is transitioned to by pressing the flying input.

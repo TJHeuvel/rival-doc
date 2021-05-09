@@ -1,12 +1,6 @@
----
-layout: default
-title: Input
-parent: Platformer Sample
-grand_parent: Samples
-nav_order: 2
----
 
-# Input
+
+# Platformer Sample - Input
 
 `PlatformerPlayerInputsSystem` gathers input from Unity's input system, and writes those inputs to all `PlatformerPlayerInputs` components present in the world.
 

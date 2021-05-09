@@ -1,11 +1,5 @@
----
-layout: default
-title: Game Initialization
-parent: Basic Sample
-grand_parent: Samples
-nav_order: 1
----
 
-# Game Initialization
 
-`BasicSceneInitializationSystem` is responsible for spawning and setting up the camera to follow the main character that's already present in the scene.
+# Basic Sample - Game Initialization
+
+`BasicSceneInitializationSystem` is responsible game initialization. It begins by spawning the camera and creating a `CharacterSpawnRequest` for the initial character. It then listens for `CharacterSpawnRequest` components to exist in order to spawn a character from a character prefab, and assign that character as the camera followed entity. Respawning is then simply a question of destroying the current character entity, and creating a new `CharacterSpawnRequest`.

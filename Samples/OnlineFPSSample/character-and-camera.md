@@ -1,12 +1,6 @@
----
-layout: default
-title: Character and Camera
-parent: Online FPS Sample
-grand_parent: Samples
-nav_order: 3
----
 
-# Character and Camera
+
+# OnlineFPS Sample - Character and Camera
 
 The networking of the character is all done in `OnlineFPSCharacterMovementSystem`. Here are the key points when it comes to networking character controllers:
 * The character system must update in the `GhostPredictionSystemGroup`
