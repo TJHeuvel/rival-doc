@@ -1,6 +1,6 @@
 
 
-[Back to Character](../character)
+[Back to Character](../character.md)
 
 # Platformer Sample - Disabled
 

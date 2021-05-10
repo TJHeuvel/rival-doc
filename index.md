@@ -5,6 +5,8 @@
 
 ![](./Images/logo.png)
 
+You can get Rival on the Unity Asset Store: [Link](todo)
+
 In Rival, the recommended way to get started implementing your own character is by doing these steps:
 - Generate the code for your new character by using the **Character Controller Wizard** window. 
 - Add the generated character authoring component to a GameObject.
@@ -39,14 +41,14 @@ However, nothing forces you to implement **all** of the character logic in `MyCh
 
 ## Useful Links
 
-See [Tutorial](./tutorial) for a guided step-by-step tutorial on creating and customizing a new character from scratch.
+See [Tutorial](./tutorial.md) for a guided step-by-step tutorial on creating and customizing a new character from scratch.
 
-See [Samples](./samples) for a sample project containing various games and test scenes made using Rival.
+See [Samples](./samples.md) for a sample project containing various games and test scenes made using Rival.
 
-See [Character Code Structure](./Core/code-structure) for an in-depth overview of the generated files. 
+See [Character Code Structure](./Core/code-structure.md) for an in-depth overview of the generated files. 
 
-See [Kinematic Character Body](./Core/kinematic-character-body) for an overview of the various fields & parameters contained in the `KinematicCharacterBody` component.
+See [Kinematic Character Body](./Core/kinematic-character-body.md) for an overview of the various fields & parameters contained in the `KinematicCharacterBody` component.
 
-See [How To](./how-to) for explanations on how to implement various character features.
+See [How To](./how-to.md) for explanations on how to implement various character features.
 
-See [Tips](./tips) for a list of particularities to be aware of, and performance tips.
+See [Tips](./tips.md) for a list of particularities to be aware of, and performance tips.

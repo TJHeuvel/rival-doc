@@ -1,15 +1,10 @@
----
-layout: default
-title: Camera Handling
-parent: How-To
-nav_order: 2
----
+
 
 # Camera Handling
 
 See the tutorial section on Camera Handling for an example 
 
-[Tutorial - Camera Handling](../Tutorial/tutorial-camera)
+[Tutorial - Camera Handling](../Tutorial/tutorial-camera.md)
 
 
 ## Dealing with character interpolation

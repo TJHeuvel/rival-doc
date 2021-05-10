@@ -1,9 +1,4 @@
----
-layout: default
-title: Prevent Air-Climbing Slopes
-parent: How-To
-nav_order: 7.7
----
+
 
 # Prevent Air-Climbing Slopes
 

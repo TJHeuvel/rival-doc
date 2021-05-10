@@ -1,5 +1,5 @@
 
-[Tutorial](../tutorial)
+[Tutorial](../tutorial.md)
 
 # Tutorial - Enable Dynamics
 
@@ -14,4 +14,4 @@ Add a dynamic box to the Subscene, press Play, and try to push it. Play with the
 
 ![](../Images/tutorial_enable_dynamic.gif)
 
-For more details on dynamic mode for characters, see [Dynamic Body Interaction](dynamic-body-interaction)
+For more details on dynamic mode for characters, see [Dynamic Body Interaction](dynamic-body-interaction.md)

@@ -1,9 +1,4 @@
----
-layout: default
-title: Change Collision Shape & Dimensions
-parent: How-To
-nav_order: 4
----
+
 
 # Change Collision Shape & Dimensions
 

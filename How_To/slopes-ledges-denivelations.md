@@ -1,9 +1,4 @@
----
-layout: default
-title: Slopes, Ledges and Denivelations
-parent: How-To
-nav_order: 11
----
+
 
 # Slopes, Ledges and Denivelations
 

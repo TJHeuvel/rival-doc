@@ -1,9 +1,4 @@
----
-layout: default
-title: Kinematic Character Body
-parent: Core
-nav_order: 3
----
+
 
 # Kinematic Character Body
 

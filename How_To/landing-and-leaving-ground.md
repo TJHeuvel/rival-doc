@@ -1,9 +1,4 @@
----
-layout: default
-title: Landing and leaving ground
-parent: How-To
-nav_order: 7.5
----
+
 
 # Landing and leaving ground
 

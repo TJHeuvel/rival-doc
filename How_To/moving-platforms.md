@@ -1,9 +1,4 @@
----
-layout: default
-title: Moving Platforms
-parent: How-To
-nav_order: 3
----
+
 
 # Moving Platforms
 

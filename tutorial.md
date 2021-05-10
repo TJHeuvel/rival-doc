@@ -8,13 +8,13 @@ The tutorial can be followed without downloading the final project, but the comp
 This tutorial is verified with Unity 2020.3
 
 ## Table of Contents
-1. [Project Setup](./Tutorial/tutorial-setup)
-1. [Character Creation](./Tutorial/tutorial-charactercreation)
-1. [Input Handling](./Tutorial/tutorial-input)
-1. [Camera Handling](./Tutorial/tutorial-camera)
-1. [Sprinting](./Tutorial/tutorial-sprint)
-1. [Double-Jump](./Tutorial/tutorial-doublejump)
-1. [Character Hits](./Tutorial/tutorial-characterhits)
-1. [Enable Dynamics](./Tutorial/tutorial-enabledynamics)
-1. [Ignore Collisions With Tag](./Tutorial/tutorial-ignorecollisions)
-1. [Friction Surfaces](./Tutorial/tutorial-frictionsurface)
+1. [Project Setup](./Tutorial/tutorial-setup.md)
+1. [Character Creation](./Tutorial/tutorial-charactercreation.md)
+1. [Input Handling](./Tutorial/tutorial-input.md)
+1. [Camera Handling](./Tutorial/tutorial-camera.md)
+1. [Sprinting](./Tutorial/tutorial-sprint.md)
+1. [Double-Jump](./Tutorial/tutorial-doublejump.md)
+1. [Character Hits](./Tutorial/tutorial-characterhits.md)
+1. [Enable Dynamics](./Tutorial/tutorial-enabledynamics.md)
+1. [Ignore Collisions With Tag](./Tutorial/tutorial-ignorecollisions.md)
+1. [Friction Surfaces](./Tutorial/tutorial-frictionsurface.md)

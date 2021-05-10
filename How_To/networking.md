@@ -1,9 +1,4 @@
----
-layout: default
-title: Networking
-parent: How-To
-nav_order: 5
----
+
 
 # Networking
 

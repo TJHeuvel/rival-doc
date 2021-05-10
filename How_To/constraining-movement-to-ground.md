@@ -1,9 +1,4 @@
----
-layout: default
-title: Constraining Movement to the Ground Plane
-parent: How-To
-nav_order: 16
----
+
 
 # Constraining Movement to the Ground Plane
 

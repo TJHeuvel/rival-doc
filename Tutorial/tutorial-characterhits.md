@@ -1,5 +1,5 @@
 
-[Tutorial](../tutorial)
+[Tutorial](../tutorial.md)
 
 # Tutorial - Character Hits
 

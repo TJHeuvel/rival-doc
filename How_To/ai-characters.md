@@ -1,9 +1,4 @@
----
-layout: default
-title: AI Characters
-parent: How-To
-nav_order: 13
----
+
 
 # AI Characters
 There is no *correct* way of handling AI characters, but there is a pattern that I like to use frequently and that I can recommend.

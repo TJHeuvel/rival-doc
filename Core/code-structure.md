@@ -1,9 +1,3 @@
----
-layout: default
-title: Character Code Structure
-parent: Core
-nav_order: 2
----
 
 
 # Character Code Structure
@@ -46,7 +40,7 @@ The components added to the entity during conversion are:
 The `MyCharacterJob` creates the core character update loop:
 - Create a temporary `MyCharacterProcessor` structure that will hold all the data necessary for your character update.
 - Call `MyCharacterProcessor.OnUpdate`, where the character logic is implemented.
-- Write the `MyCharacterProcessor` data back to the ECS components. By default, the core character update only modifies Translation, Rotation, KinematicCharacterBody, `MyCharacterComponent`, and `MyCharacterInputs`. It's up to you to write to other components you may modify in your own implementation.
+- Write the `MyCharacterProcessor` data back to the ECS components. By default, the core character update only modifies `Translation`, `Rotation`, `KinematicCharacterBody`, `MyCharacterComponent`, and `MyCharacterInputs`. It's up to you to write to other components you may modify in your own implementation.
 
 
 ## MyCharacterProcessor
@@ -58,15 +52,15 @@ The `MyCharacterJob` creates the core character update loop:
 
 ### Processor Update
 
-`MyCharacterProcessor.OnUpdate` will call various core character update steps, as well as a `HandleCharacterControl` function where default velocity & rotation control behaviour is implemented. It is absolutely necessary that all the calls to `KinematicCharacterUtilities.(...)` done here happen in that exact order, even though some of them are optional and can be removed (the comments will tell you which ones). However, you are free to add additional calls to your own functions before, after, or in-between these. See [Utilities](utilities) for an in-depth description of these calls.
+`MyCharacterProcessor.OnUpdate` will call various core character update steps, as well as a `HandleCharacterControl` function where default velocity & rotation control behaviour is implemented. It is absolutely necessary that all the calls to `KinematicCharacterUtilities.(...)` done here happen in that exact order, even though some of them are optional and can be removed (the comments will tell you which ones). However, you are free to add additional calls to your own functions before, after, or in-between these. See [Utilities](utilities.md) for an in-depth description of these calls.
 
 ### Processor Callbacks
 
 Here is a description of the processor callbacks:
 - `CanCollideWithHit`: return true if the character should be able to collide with the hit, and return false if not. By default, we call `KinematicCharacterUtilities.DefaultMethods.CanCollideWithHit` to avoid colliding with trigger colliders, but you could add additional conditions.
-- `OnMovementHit`: determine what happens when the character collider casts have detected a hit during the movement iterations. By default, we call `KinematicCharacterUtilities.DefaultMethods.OnMovementHit`, which will handle moving the character forward towards the hit, consuming movement length, and projecting velocity. This callback is mostly for advanced usage, and it is recommended to not change it unless you wish to implement [step handling](../How_To/step-handling).
-- `IsGroundedOnHit`: determine if the character is grounded on the hit or not. By default, we call `KinematicCharacterUtilities.DefaultMethods.IsGroundedOnHit`, which will check the slope angle and velocity direction in order to determine the final result. If you wish to implement [step handling](../How_To/step-handling) for characters with a rounded-bottom shape such as a capsule, you would have to call `KinematicCharacterUtilities.DefaultMethods.IsGroundedOnHit_ForRoundedColliderStepHandling` instead.
-- `OverrideDynamicHitMasses`: Gives you an opportunity to modify the mass ratios between the character and another dynamic body when they are colliding. This is only called for characters that have [SimulatedDynamic](../How_To/dynamic-body-interaction) set to true. This function can be left empty if you do not wish to modify anything.
+- `OnMovementHit`: determine what happens when the character collider casts have detected a hit during the movement iterations. By default, we call `KinematicCharacterUtilities.DefaultMethods.OnMovementHit`, which will handle moving the character forward towards the hit, consuming movement length, and projecting velocity. This callback is mostly for advanced usage, and it is recommended to not change it unless you wish to implement [step handling](../How_To/step-handling.md).
+- `IsGroundedOnHit`: determine if the character is grounded on the hit or not. By default, we call `KinematicCharacterUtilities.DefaultMethods.IsGroundedOnHit`, which will check the slope angle and velocity direction in order to determine the final result. If you wish to implement [step handling](../How_To/step-handling.md) for characters with a rounded-bottom shape such as a capsule, you would have to call `KinematicCharacterUtilities.DefaultMethods.IsGroundedOnHit_ForRoundedColliderStepHandling` instead.
+- `OverrideDynamicHitMasses`: Gives you an opportunity to modify the mass ratios between the character and another dynamic body when they are colliding. This is only called for characters that have [SimulatedDynamic](../How_To/dynamic-body-interaction.md) set to true. This function can be left empty if you do not wish to modify anything.
 - `ProjectVelocityOnHits`: determines how the character velocity gets projected on hits, based on all hits so far this frame. By default, we call `KinematicCharacterUtilities.DefaultMethods.ProjectVelocityOnHits`. This is callback mostly for advanced usage, and it is recommended not to change it unless you wish to make your character bounce on certain surfaces, for example.
 
 It is recommended to carefully study & understand the "default methods" called here before attempting to modify them. **Changing some of these things could break the character movement** or have a negative impact on performance, especially for the default implementations of `OnMovementHit` and `ProjectVelocityOnHits`.

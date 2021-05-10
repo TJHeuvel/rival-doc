@@ -1,9 +1,4 @@
----
-layout: default
-title: Utilities
-parent: Core
-nav_order: 4
----
+
 
 # KinematicCharacterUtilities
 

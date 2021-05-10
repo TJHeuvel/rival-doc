@@ -1,9 +1,4 @@
----
-layout: default
-title: Character Hits
-parent: How-To
-nav_order: 15
----
+
 
 # Character Hits
 

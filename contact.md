@@ -1,6 +1,8 @@
 
 # Contact
 
+Author: Philippe St-Amand
+
 Asset store support email: **store.pstamand@gmail.com**
 
 [Twitter](https://twitter.com/PhilippeStA)

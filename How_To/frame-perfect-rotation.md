@@ -1,9 +1,4 @@
----
-layout: default
-title: Frame-Perfect Rotation
-parent: How-To
-nav_order: 14
----
+
 
 # Frame-Perfect Rotation
 The default code-generated character update job, which updates at a fixed timestep, may not always be the ideal place to handle character rotation. This is especially true when you have a camera that rotates at a variable timestep, and you need the character to follow the rotation of the camera 1:1.

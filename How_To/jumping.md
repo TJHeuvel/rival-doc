@@ -1,9 +1,4 @@
----
-layout: default
-title: Jumping
-parent: How-To
-nav_order: 7
----
+
 
 # Jumping
 

@@ -1,15 +1,10 @@
----
-layout: default
-title: Input Handling
-parent: How-To
-nav_order: 1
----
+
 
 # Input Handling
 
 See the tutorial section on Input Handling for an example 
 
-[Tutorial - Input Handling](../Tutorial/tutorial-input)
+[Tutorial - Input Handling](../Tutorial/tutorial-input.md)
 
 
 ## Fixed Step Input
