@@ -173,6 +173,10 @@ td {
 	background: #ccc;
  }
 
+ a.name {
+   white-space: nowrap;
+ }
+
 /* main */
 
  body {
@@ -185,14 +189,6 @@ td {
 	line-height: 1.8em;
 	-webkit-font-smoothing: antialiased;
 }
-
-/* Wrapper */
-
-/*
-.wrapper {
-  width:1200px;
-}
-*/
 
 /* Sidenav */
 .sidenav {
@@ -214,11 +210,6 @@ section {
     margin-left:290px;
     padding-bottom: 100px;
 }
-
-a.name {
-	white-space: nowrap;
-}
-
 
 /* Code blocks */
 
