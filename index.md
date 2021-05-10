@@ -1,7 +1,4 @@
-
-# Rival - DOTS Character Controller
-
-## Getting Started
+# Getting Started
 
 ![](./Images/logo.png)
 
