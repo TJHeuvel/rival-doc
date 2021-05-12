@@ -24,7 +24,7 @@ public struct TutorialCharacterComponent : IComponentData
 }
 ```
 
-Then, we will modify `TutorialCharacterProcessor.CanCollideWithHit` so that it also ignores collisions with colliders that have that physics tag. 
+Then, we will modify `TutorialCharacterProcessor.CanCollideWithHit` so that it also ignores collisions with colliders that have that physics tag. You will have to add `using Unity.Physics.Authoring;` at the top of the file for this to work.
 
 ```cs
 public struct TutorialCharacterProcessor : IKinematicCharacterProcessor

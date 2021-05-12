@@ -29,7 +29,7 @@ This section will go over those steps in more details:
 
 Note: once your character files are generated, you can safely move them to another folder, edit them, rename them, etc.... but remember that re-generating the files with the same path and character name will overwrite your changes.
 
-Refer to the [Getting Started](../index.md) and [Tutorial](../Core/code-structure.md) sections for an explanation of what the generated files do
+Refer to the [Getting Started](../index.md) and [Code Structure](../Core/code-structure.md) sections for an explanation of what the generated files do
 
 
 ## Creating the Character Authoring GameObject

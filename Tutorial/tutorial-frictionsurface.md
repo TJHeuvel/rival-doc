@@ -6,6 +6,9 @@
 We want to be able to create surfaces where the character has a limited movement speed. To do this, we will first create a new `CharacterFrictionSurface` component:
 
 ```cs
+using System;
+using Unity.Entities;
+
 [Serializable]
 [GenerateAuthoringComponent]
 public struct CharacterFrictionSurface : IComponentData
@@ -75,7 +78,7 @@ public class TutorialCharacterSystem : SystemBase
 
 ```
 
-At this point, we are ready to use the `CharacterFrictionSurfaceFromEntity` in our character movement implementation in `TutorialCharacterProcessor.HandleCharacterControl`. Look for the `// here` comment:
+At this point, we are ready to use the `CharacterFrictionSurfaceFromEntity` in our character movement implementation in `TutorialCharacterProcessor.HandleCharacterControl`. 
 
 ```cs
 public void HandleCharacterControl()

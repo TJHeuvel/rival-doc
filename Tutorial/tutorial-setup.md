@@ -3,7 +3,7 @@
 
 # Tutorial - Project Setup
 
-We will start by creating a project that is set-up for DOTS, and then create the most basic possible character using Rival.
+We will start by creating a project that is set-up for DOTS.
 
 - Create/Open a Unity project using a Unity version that is verified to work with Rival. Make sure it also uses either the URP or HDRP (required for rendering in DOTS). 
 - Go to "Edit > Project Settings > Player Settings", and enable "Allow 'unsafe' code". (Alternatively, if you want your code to be part of an .asmdef, make sure to enable unsafe code in that .asmdef)
