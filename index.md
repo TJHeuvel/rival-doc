@@ -4,6 +4,8 @@
 
 You can get Rival on the Unity Asset Store: [Link](todo)
 
+This package is verified with Unity 2020.3, and it is recommended that you use only that version.
+
 In Rival, the recommended way to get started implementing your own character is by doing these steps:
 - Generate the code for your new character by using the **Character Controller Wizard** window. 
 - Add the generated character authoring component to a GameObject.

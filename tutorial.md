@@ -7,6 +7,16 @@ The tutorial can be followed without downloading the final project, but the comp
 
 This tutorial is verified with Unity 2020.3
 
+
+## DOTS
+
+In order to use Rival, you must know how to use DOTS. Here are some resources to help:
+* [ECS Samples repository](https://github.com/Unity-Technologies/EntityComponentSystemSamples) on Github. More specifically, the ["Hello Cube"](https://github.com/Unity-Technologies/EntityComponentSystemSamples/tree/master/ECSSamples/Assets/HelloCube) section which covers the basics of programming with components and systems.
+* [DOTS Video Tutorials Series by Code Monkey](https://www.youtube.com/playlist?list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba)
+* [Unity.Entities Manual](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/index.html)
+* [Unity.Physics Manual](https://docs.unity3d.com/Packages/com.unity.physics@0.6/manual/index.html) 
+
+
 ## Table of Contents
 1. [Project Setup](./Tutorial/tutorial-setup.md)
 1. [Character Creation](./Tutorial/tutorial-charactercreation.md)
