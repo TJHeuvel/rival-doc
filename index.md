@@ -44,9 +44,7 @@ See [Tutorial](./tutorial.md) for a guided step-by-step tutorial on creating and
 
 See [Samples](./samples.md) for a sample project containing various games and test scenes made using Rival.
 
-See [Character Code Structure](./Core/code-structure.md) for an in-depth overview of the generated files. 
-
-See [Kinematic Character Body](./Core/kinematic-character-body.md) for an overview of the various fields & parameters contained in the `KinematicCharacterBody` component.
+See [Core](./core.md) for an in-depth overview of the core components & systems. 
 
 See [How To](./how-to.md) for explanations on how to implement various character features.
 
