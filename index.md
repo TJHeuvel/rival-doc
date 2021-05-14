@@ -2,7 +2,7 @@
 
 ![](./Images/logo.png)
 
-You can get Rival on the Unity Asset Store: [Link](todo)
+You can get Rival on the Unity Asset Store: [Link](https://assetstore.unity.com/packages/slug/195567)
 
 This package is verified with Unity 2020.3, and it is recommended that you use only that version.
 
