@@ -1,15 +1,11 @@
 
 # Samples
 
-Here are the steps required in order to install the Rival Samples project:
-1. Create a completely new Unity project, using either the “3D” or “URP” template. You can call this project “RivalSamples” for example.
-1. In “Edit > Project Settings > Player”, set the “Active Input Handling” to “Both”. A restart of the editor will be required at this point.
-1. Import the Rival package into this project.
-1. In the “Rival/Samples” folder, open “RivalSamples.unitypackage”. WARNING: this will completely overwrite the project settings and dependencies.
-1. This will start the process of overwriting your project with the Rival Samples project.
-1. Once finished, all samples will be under the “Rival_Samples” folder. Each sample has its own sub-folder.
+Rival comes with a Samples project that can be installed optionally. The samples include a 3D Platformer game, an Online FPS game, a Stress Test scene, and a Basic playground with vehicles and various physics interactions.
 
-Each sample has its own folder in the project, and a "Common" folder holds scripts and assets that are common throughout several samples.
+In order to get started with the samples, see: [How to install Rival Samples](./Samples/samples-installation.md)
+
+Each sample has its own folder in the project, and its own assembly definition file(s). A "Common" folder holds scripts and assets that are common throughout several samples.
 
 
 ## Basic Sample

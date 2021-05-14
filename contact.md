@@ -3,7 +3,7 @@
 
 Author: Philippe St-Amand
 
-Asset store support email: **store.pstamand@gmail.com**
+Asset store support email: **store.pstamand@gmail.com** (please specify that the support request is for “Rival”)
 
 [Asset Store Publisher](https://assetstore.unity.com/publishers/26920)
 
