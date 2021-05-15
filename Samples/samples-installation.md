@@ -45,5 +45,10 @@ Here are the steps required in order to install the Rival Samples project:
 * At this point, restart Unity
 * Once restarted, you can find all samples under the “Rival_Samples” folder, and you're done!
 
-Note: If you opened “RivalSamples.unitypackage”, and the editor restarted, and you don’t see the “Rival_Samples” folder once it has restarted, simply try to reopen the “RivalSamples.unitypackage” again, and do the procedure again. This is most likely due to the editor having to restart for certain new project settings, and not giving you the opportunity to import the assets the first time.
+------------------------------
 
+NOTE 1: If after these steps, you still don’t see the “Rival_Samples” folder in your project, simply restart Unity again and try to reopen the “RivalSamples.unitypackage” again. This is most likely due to the import process being blocked or interrupted by other import/compilation processes.
+
+NOTE 2: If you are seeing anything that isn't working properly after importing the Samples (invalid shaders, subscenes not loading, etc...), try exiting Unity, and deleting the "Library" folder (the one next to your project's "Assets" folder). This will cause Unity to cleanly reimport everything the next time you open the project, and it often solves these issues.
+
+NOTE 3: "RivalSamples.unitypackage" does not actually include the core Rival files. If you install the samples in a different way than what is described here, you must keep this in mind, and import "Rival" on top of the samples package.

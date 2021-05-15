@@ -4,12 +4,12 @@
 
 You can get Rival on the Unity Asset Store: [Link](https://assetstore.unity.com/packages/slug/195567)
 
-This package is verified with Unity 2020.3, and it is recommended that you use only that version.
+This package is verified for Unity 2020.3, and it is recommended that you use only that version for the time being. This is the version recommended by Unity for DOTS development, until further notice.
 
 In Rival, the recommended way to get started implementing your own character is by doing these steps:
 - Generate the code for your new character by using the **Character Controller Wizard** window. 
 - Add the generated character authoring component to a GameObject.
-- Customize the character's implementation inside of the generated files.
+- Customize the character's implementation inside of the generated files, and/or in extra systems.
 
 
 ### Character Controller Wizard
