@@ -45,7 +45,7 @@ Here are the steps required in order to install the Rival Samples project:
 * At this point, restart Unity
 * Once restarted, you can find all samples under the “Rival_Samples” folder, and you're done!
 
-------------------------------
+------------------------------ 
 
 NOTE 1: If after these steps, you still don’t see the “Rival_Samples” folder in your project, simply restart Unity again and try to reopen the “RivalSamples.unitypackage” again. This is most likely due to the import process being blocked or interrupted by other import/compilation processes.
 
