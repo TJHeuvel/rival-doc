@@ -24,7 +24,7 @@ public void OnMovementHit(
         in PhysicsCollider,
         Entity,
         Rotation,
-        CharacterUp,
+        GroundingUp,
         hitDistance,
         true, // step handling
         1f, // max step height
@@ -39,10 +39,8 @@ public void OnMovementHit(
             ref VelocityProjectionHitsBuffer,
             ref remainingMovementDirection,
             ref remainingMovementLength,
-            Entity,
             originalVelocityDirection,
-            hitDistance,
-            CharacterUp);
+            hitDistance);
     }
 }
 ```
@@ -67,7 +65,7 @@ public bool IsGroundedOnHit(in BasicHit hit, int groundingEvaluationType)
         in CharacterBody,
         in PhysicsCollider,
         Entity,
-        CharacterUp,
+        GroundingUp,
         groundingEvaluationType,
         true, // step handling
         1f, // max step height

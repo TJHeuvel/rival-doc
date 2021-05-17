@@ -68,7 +68,7 @@ Finally, we have to modify the way our character handles velocity in `TutorialCh
                 targetVelocity *= TutorialCharacter.SprintSpeedMultiplier;
             }
 
-            CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, TutorialCharacter.GroundedMovementSharpness, DeltaTime, CharacterUp, CharacterBody.GroundHit.Normal);
+            CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, TutorialCharacter.GroundedMovementSharpness, DeltaTime, GroundingUp, CharacterBody.GroundHit.Normal);
 
         // (...)
 }
