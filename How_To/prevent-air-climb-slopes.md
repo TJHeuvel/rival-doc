@@ -48,7 +48,7 @@ public void HandleCharacterControl()
             }
         }
 
-        CharacterControlUtilities.StandardAirMove(ref CharacterBody.RelativeVelocity, airAcceleration, MyCharacter.AirMaxSpeed, CharacterUp, DeltaTime, false);
+        CharacterControlUtilities.StandardAirMove(ref CharacterBody.RelativeVelocity, airAcceleration, MyCharacter.AirMaxSpeed, GroundingUp, DeltaTime, false);
         
         // (...)
 ```

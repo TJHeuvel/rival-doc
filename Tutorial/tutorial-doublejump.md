@@ -38,7 +38,7 @@ public void HandleCharacterControl()
         // Air Jumps
         if (TutorialCharacterInputs.JumpRequested && TutorialCharacter._currentAirJumps < TutorialCharacter.MaxAirJumps)
         {
-            CharacterControlUtilities.StandardJump(ref CharacterBody, CharacterUp * TutorialCharacter.JumpSpeed, true, CharacterUp);
+            CharacterControlUtilities.StandardJump(ref CharacterBody, GroundingUp * TutorialCharacter.JumpSpeed, true, GroundingUp);
             TutorialCharacter._currentAirJumps++;
         }
 
