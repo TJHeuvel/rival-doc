@@ -24,18 +24,54 @@ And now here are the steps required to set up the camera in this tutorial scene:
 
 ![](../Images/tutorial_camera_setup.png)
 
-This should take care of setting up the camera, but we still have to give inputs to that camera to control it. Add the following code to the `TutorialInputsSystem`:
-```cs
-float2 cameraLookInput = new float2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-float cameraScrollInput = -Input.mouseScrollDelta.y;
+This should take care of setting up the camera, but we still have to give inputs to that camera to control it. 
 
-// Iterate on all OrbitCameraInputs components to apply input to them
-Entities
-    .ForEach((ref OrbitCameraInputs cameraInputs) =>
+First, we will add a new field to the `Player` component to represent the camera that this player controls:
+```cs
+public struct Player : IComponentData
+{
+    // (...)
+    public Entity ControlledCamera;
+}
+```
+
+Then, we will go in our Subscene, and assign the "OrbitCamera" object to that `ControlledCamera` field of our Player.
+
+Finally, we will modify the `PlayerSystem` to control the camera after the chunk of code that controls the character:
+```cs
+public class PlayerSystem : SystemBase
+{
+    // (...)
+
+    protected override void OnUpdate()
     {
-        cameraInputs.Look = cameraLookInput;
-        cameraInputs.Scroll = cameraScrollInput;
-    }).Schedule();
+        // (...)
+
+        // Gather raw input
+        // (...)
+        float2 cameraLookInput = new float2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        float cameraScrollInput = -Input.mouseScrollDelta.y;
+
+        // Iterate on all Player components to apply input to their character
+        Entities
+            .ForEach((ref Player player) =>
+            {
+                // Character control
+                // (...)
+
+                // Camera control
+                if (HasComponent<OrbitCameraInputs>(player.ControlledCamera))
+                {
+                    OrbitCameraInputs cameraInputs = GetComponent<OrbitCameraInputs>(player.ControlledCamera);
+
+                    cameraInputs.Look = cameraLookInput;
+                    cameraInputs.Scroll = cameraScrollInput;
+
+                    SetComponent(player.ControlledCamera, cameraInputs);
+                }
+            }).Schedule();
+    }
+}
 ```
 
 If you press Play now, you should have a controllable orbit camera moving around your character.

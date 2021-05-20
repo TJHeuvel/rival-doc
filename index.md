@@ -25,17 +25,37 @@ You can specify the name, namespace (optional), and path of the generated charac
 
 Assumming we chose "MyCharacter" as the character name in the **Character Controller Wizard**,
 
+#### Character Components
 The `MyCharacterAuthoring` component adds all of the required character components to the entity during conversion. Mainly:
 - `KinematicCharacterBody`: contains the core data common to all characters (velocity, grounding, movement parameters, etc...).
 - `MyCharacterComponent`: contains the data that is specific to your own implementation.
-- `MyCharacterInputs`: contains things like the desired character movement direction and jump requests, and is meant to be written-to by player input or AI systems.
+- `MyCharacterInputs`: contains inputs to the character movement, like the desired character movement direction and jump requests. It acts as a common interface for both human players & AI systems to control the character. 
 
-Implementing your custom character movement logic is mostly done in the `MyCharacterProcessor`. This struct is created by the `MyCharacterSystem.MyCharacterJob` for each character during the job's update loop, and the job calls `MyCharacterProcessor.OnUpdate`. The roles of the `MyCharacterProcessor` are:
-- Containing all the data required for a character's update
-- Implementing the `MyCharacterProcessor.OnUpdate` function. This is where all the major character update steps are called, and `MyCharacterProcessor.HandleCharacterControl` is where the basic default character movement is implemented (you are free to customize or completely replace the default implementation). Character movement is mostly a question reading from `MyCharacterInputs`, and using those inputs to control the `KinematicCharacterBody.RelativeVelocity` and the `Rotation` of the character. You can also access grounding information via `KinematicCharacterBody.IsGrounded` and `KinematicCharacterBody.GroundHit`. You can study the default `MyCharacterProcessor.HandleCharacterControl` implementation to learn the basics.
-- Implementing "processor callbacks" from the internal character update loop. This is where you can customize things like what the character can collide with, whether the character is grounded on a hit or not, how the velocity is projected, etc...
+#### Character System
+The `MyCharacterSystem` schedules a `MyCharacterJob` that iterates on the components of your character. For each character, the `MyCharacterJob` creates a temporary `MyCharacterProcessor` struct, initializes all of its data, calls `MyCharacterProcessor.OnUpdate`, and finally writes back updated data from the `MyCharacterProcessor` to the components.
 
-However, nothing forces you to implement **all** of the character logic in `MyCharacterProcessor`. It is simply there to give you easy access to the exposed character update loop, as well as all the data that the character update already requires, but you are allowed to create separate systems that handle other aspects of the character movement. For example, a separate "wind zone" system could detect trigger events with a character, and add to that character's velocity to simulate a wind push force.
+#### Character Processor
+
+`MyCharacterProcessor.OnUpdate` calls all of the major character update steps. These steps handle initializing the character values for the frame, handling parent movement, detecting ground, moving with collisions, detecting moving platforms, etc... Some of them are optional (see the comments in the code), but they must always be called in that order if they are called.
+
+`MyCharacterProcessor.HandleCharacterControl` contains basic character control logic, and you are free to customize or replace this entirely with your own implementation. This function typically has 2 main goals: controlling the `KinematicCharacterBody.RelativeVelocity` of the character, and controlling the `Rotation` of the character. The default implementation basically does this:
+```cs
+// if the character is grounded...
+    // interpolate velocity towards input direction for responsive ground control
+    // add jump velocity if jump input is requested
+// otherwise, if the character is not grounded...
+    // accelerate velocity towards input direction for air control
+    // add gravity
+    // apply drag
+
+// rotate the character towards its move direction (if there is any move input)
+
+// reset the jump input request
+```
+
+Notice that `KinematicCharacterBody` contains important information about grounding.
+
+`MyCharacterProcessor` also contains several "processor callbacks" received from the internal character update loop. This is where you can customize things like what the character can collide with, whether the character is grounded on a hit or not, how the velocity is projected, etc... but you can keep the default implementation.
 
 
 ## Useful Links
