@@ -13,7 +13,7 @@ These fields are used in your character processor in `IsGroundedOnHit`. `Kinemat
 
 ![](../Images/howto_slopechangedetection.png)
 
-* a: height of the initial "b" raycast, determined by the `verticalOffset` parameter of the method
+* a: height of the initial forward raycast, determined by the `verticalOffset` parameter of the method
 * b: a forward raycast of length equal to the `deltaTimeIntoFuture` parameter of the method multiplied by the length of our character velocity
 * c: downward raycasts of length equal to the `downDetectionDepth` parameter of the method
 * d: distance that the second downward raycast will be from the first, equal to the `secondaryEmptinessCheckDistance` parameter of the method
