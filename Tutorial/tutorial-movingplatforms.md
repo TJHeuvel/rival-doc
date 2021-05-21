@@ -96,6 +96,7 @@ At this point, you can press Play and jump onto the moving platform. Your charac
 ![](../Images/tutorial_movingplatform_result.gif)
 
 ### Additional Notes
-* If you want your character to be able to stand on a dynamic rigidbody, simply add a `TrackedTransformAuthoring` component to that rigidbody
-* If you really don't want to have to manually add a `TrackedTransformAuthoring` component to everything that a character can stand on, you could choose to write a job that iterates on all entities that have a `PhysicsVelocity` but **don't** have a `TrackedTransformAuthoring`, and then add a `TrackedTransformAuthoring` on those
-* Even though it is recommended to move kinematic moving platforms with their `PhysicsVelocity` for accurate physics interactions between the platform and the characters, a moving platform moved directly with `Translation` and `Rotation` can still be stood on nonetheless if it has a `TrackedTransformAuthoring` component. It's just that the pushing and being pushed logic between the platform and the character will be flawed because it won't take impulses into account
+* If you want your character to be able to stand on a dynamic rigidbody, simply add a `TrackedTransformAuthoring` component to that rigidbody.
+* If you really don't want to have to manually add a `TrackedTransformAuthoring` component to everything that a character can stand on, you could choose to write a job that iterates on all entities that have a `PhysicsVelocity` but **don't** have a `TrackedTransformAuthoring`, and then add a `TrackedTransformAuthoring` on those. This would take care of automatically making all kinematic or dynamic bodies in your scene able to be stood on by the character.
+* Even though it is recommended to move kinematic moving platforms with their `PhysicsVelocity` for accurate physics interactions between the platform and the characters, a moving platform moved directly with `Translation` and `Rotation` can still be stood on nonetheless if it has a `TrackedTransformAuthoring` component. It's just that the pushing and being pushed logic between the platform and the character will be flawed because it won't take impulses into account.
+
