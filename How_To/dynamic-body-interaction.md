@@ -10,3 +10,8 @@ Since the character is still kinematic, by default, a dynamic rigidbody trying t
 The advantage of option 1 is that it is preferable for performance, and allows you to still raise trigger events with the collided bodies.
 
 The advantage of option 2 is that the character remains a "collider" as opposed to a "trigger", which means that it will still be detectable by physics queries that expect to hit only colliders (not triggers). But using this method means that your character cannot raise collision events with dynamic bodies, so you'd have to rely on the character hits buffer in order to detect those.
+
+
+## SynchronizeCollisionWorld
+
+When dealing with a character that can push or be pushed by other bodies (kinematic or dynamic), you may want to add a `PhysicsStep` component to an entity in your scene, and set `SynchronizeCollisionWorld` to true. This will make sure that the `CollisionWorld` that the character update uses for physics queries is properly updated after the physics systems make the rigidbodies move. The result is that enabling `SynchronizeCollisionWorld` will get rid of some slight visible "lag" between the character and the object it pushes.

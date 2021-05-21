@@ -2,7 +2,7 @@
 
 # Constraining Movement to the Ground Plane
 
-The default code-generated character comes with a `ConstrainVelocityToGroundPlane` option, which is true by default. 
+The default code-generated character comes with a `ConstrainVelocityToGroundPlane` option, which is true by default. It is used as a parameter to `KinematicCharacterUtilities.DefaultMethods.ProjectVelocityOnHits` in the `ProjectVelocityOnHits` of your character processor.
 
 When true, this option makes your character unable to "bump up into the air" when moving fast into slopes that are too steep. 
 
