@@ -1,12 +1,6 @@
 
 # Changelog
 
-## v0.2 (upcoming)
-**Features:**
-- Added an extra backwards raycast at the end of `DetectFutureSlopeChange`, to improve slope angle change detection
-
-**Fixes**
-- Set the default `deltaTimeIntoFuture` value to "Time.DeltaTime", when calling `DetectFutureSlopeChange` in the `IsGroundedOnHit` callback of the default generated character processor
 
 ## v0.1 (latest)
 **Features:**
