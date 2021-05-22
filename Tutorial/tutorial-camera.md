@@ -1,7 +1,7 @@
 
 [Tutorial](../tutorial.md)
 
-# Tutorial - Camera Handling
+# Tutorial - Camera Setup
 
 Now we will set up a simple camera. You can start by downloading the Simple Camera .zip available here. It contains all the files needed to create a basic orbit camera:
 
