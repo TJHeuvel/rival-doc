@@ -51,3 +51,4 @@ Refer to the [Getting Started](../index.md) and [Code Structure](../Core/code-st
 At this point, the character is all set-up. You can press Play and it should fall on the floor by itself. However, since we don't have any input handling yet, it won't be controllable.
 
 ![](../Images/tutorial_finished_authoring.gif)
+

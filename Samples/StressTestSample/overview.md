@@ -11,7 +11,8 @@ The character in this sample is very close to the default code-generated charact
 - **Multithreaded**: toggle scheduling parallel jobs instead of a single job
 - **Physics Step**: toggle the simulation of the physics step
 - **Rendering**: toggle rendering
-- **Denivelations**: toggle the detection of denivelations in the character's `IsGroundedOnHit`
+- **SlopeAngle**: toggle the detection of slope angle degrounding
+- **StepHandling**: toggles step handling
 - **AddCloseHitsForVelocityProjection**: toggles `KinematicCharacterBody.AddCloseHitsForVelocityProjection`
 - **StatefulHits**: toggles calling `KinematicCharacterUtilities.ProcessStatefulCharacterHits` in the character's update
 - **SimulatedDynamic**: toggles `KinematicCharacterBody.SimulatedDynamic` and toggles character collision response between "Trigger" (when true) and "Collide" (when false)

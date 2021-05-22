@@ -1,7 +1,7 @@
 
 [Tutorial](../tutorial.md)
 
-# Tutorial - Camera Handling
+# Tutorial - Camera Setup
 
 Now we will set up a simple camera. You can start by downloading the Simple Camera .zip available here. It contains all the files needed to create a basic orbit camera:
 
@@ -18,26 +18,10 @@ And now here are the steps required to set up the camera in this tutorial scene:
 - Add the "Simple Camera" files to your project (download link above)
 - Create a new GameObject in the Subscene, and call it "OrbitCamera"
 - Add an `OrbitCameraAuthoring` and `MainCameraAuthoring` to that "OrbitCamera" GameObject
-- In the `OrbitCameraAuthoring` component, assign the character GameObject (or a child "CameraTarget" object) to the `InitialFollowedObject` field. This represents which object the camera will be following
+- In the `OrbitCameraAuthoring` component, assign the character GameObject (or a child object of the character) to the `InitialFollowedObject` field. This represents which object the camera will be following
 - In the `OrbitCameraAuthoring` component, assign the character GameObject (the one with the `PhysicsShape` component) to the `IgnoredEntities` List. This represents which objects the camera will ignore in its camera obstruction checks
 - Add a `RegisterAsMainCameraBehaviour` component to the GameObject that has Unity's `Camera` component
 
 ![](../Images/tutorial_camera_setup.png)
 
-This should take care of setting up the camera, but we still have to give inputs to that camera to control it. Add the following code to the `TutorialInputsSystem`:
-```cs
-float2 cameraLookInput = new float2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-float cameraScrollInput = -Input.mouseScrollDelta.y;
-
-// Iterate on all OrbitCameraInputs components to apply input to them
-Entities
-    .ForEach((ref OrbitCameraInputs cameraInputs) =>
-    {
-        cameraInputs.Look = cameraLookInput;
-        cameraInputs.Scroll = cameraScrollInput;
-    }).Schedule();
-```
-
-If you press Play now, you should have a controllable orbit camera moving around your character.
-
-![](../Images/tutorial_camera.gif)
+This should take care of setting up the camera. If you press Play now, you should have a camera that is centered on your character. However, nothing is controllable yet. We'll add input handling in the next section.

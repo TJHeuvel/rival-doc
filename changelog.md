@@ -1,7 +1,8 @@
 
 # Changelog
 
-## v0.1
+
+## v0.1 (latest)
 **Features:**
 - Initial package
 

@@ -15,3 +15,10 @@ Add a dynamic box to the Subscene, press Play, and try to push it. Play with the
 ![](../Images/tutorial_enable_dynamic.gif)
 
 For more details on dynamic mode for characters, see [Dynamic Body Interaction](../How_To/dynamic-body-interaction.md)
+
+
+## SynchronizeCollisionWorld
+
+By default, the physics systems don't update the `CollisionWorld` after the physics step has moved bodies with their velocity. Since our character updates after physics, and relies on the `CollisionWorld` in order to detect hits, leaving things like this may result in a slight lag when a character pushes or gets pushed by another body. 
+
+We can solve this by adding a new empty GameObject to our Subscene, calling it "PhysicsStep", and adding a `PhysicsStep` component to it. Then, enable `PhysicsStep.SynchronizeCollisionWorld` in the inspector. This will take care of updating the `CollisionWorld` properly, and get rid of any pushing lag. 

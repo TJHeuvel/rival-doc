@@ -2,6 +2,10 @@
 
 # Moving Platforms
 
+See the tutorial section on Moving Platforms for an example 
+
+[Tutorial - Moving Platforms](../Tutorial/tutorial-movingplatforms.md)
+
 ## Standing on moving platforms
 
 In order to have a character that can stand on other physics bodies (like a moving platform), you must:

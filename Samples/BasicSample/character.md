@@ -7,8 +7,6 @@ The Basic character uses a structure that is very similar to the default code-ge
 * Ignore collisions on physics bodies that have a certain physics tag
 * Modify mass ratios against certain dynamic physics bodies based on a physics tag
 * Modify velocity projection to allow bouncing against certain physics bodies based on a physics tag
-* Handle various grounding & denivelation scenarios using `KinematicCharacterUtilities.ShouldPreventGroundingBasedOnDenivelations` in `BasicCharacterProcessor.IsGroundedOnHit`
-* Step handling, handled in `BasicCharacterProcessor.OnMovementHit` and `BasicCharacterProcessor.IsGroundedOnHit`
 
 
 ## AI Characters

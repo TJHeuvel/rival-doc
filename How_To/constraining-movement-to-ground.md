@@ -2,6 +2,12 @@
 
 # Constraining Movement to the Ground Plane
 
-The default code-generated character's movement is constrained to the ground plane, which means that it will not bump into steep slopes that exceed its `KinematicCharacterBody.MaxGroundedSlopeAngle`.
- 
-If you want to disable this behaviour, you will have to change something in your character's `IKinematicCharacterProcessor.ProjectVelocityOnHits`. By default, this function makes a call to a default velocity projection method. If you simply set the `constrainToGoundPlane` parameter of the `KinematicCharacterUtilities.DefaultProjectVelocityOnHits` function to false, your character will now be able to "bump" onto steep slopes and be ungrounded when it walks towards them, instead of being stopped instantly and remaining grounded.
+The default code-generated character comes with a `ConstrainVelocityToGroundPlane` option, which is true by default. It is used as a parameter to `KinematicCharacterUtilities.DefaultMethods.ProjectVelocityOnHits` in the `ProjectVelocityOnHits` of your character processor.
+
+When true, this option makes your character unable to "bump up into the air" when moving fast into slopes that are too steep. 
+
+![](../Images/howto_constrainvel_true.gif)
+
+If false, though, your character will not try to constrain its velocity to the ground, and will bump up in the air
+
+![](../Images/howto_constrainvel_false.gif)

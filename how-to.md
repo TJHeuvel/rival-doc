@@ -15,7 +15,7 @@ The following are articles about how to implement various character features in 
 - [Activating and Deactivating Collisions](./How_To/collisions-activation.md)
 - [Constraining Movement to Ground Plane](./How_To/constraining-movement-to-ground.md)
 - [Prevent Air-Climbing Steep Slopes](./How_To/prevent-air-climb-slopes.md)
-- [Slopes, Ledges & Denivelations](./How_To/slopes-ledges-denivelations.md)
+- [Prevent Grounding Based on Slope Angle Changes](./How_To/slope-changes.md)
 - [Dynamic Body Interactions](./How_To/dynamic-body-interaction.md)
 - [Detecting Landing & Leaving Ground](./How_To/landing-and-leaving-ground.md)
 - [Moving Platforms](./How_To/moving-platforms.md)

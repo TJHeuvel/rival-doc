@@ -27,25 +27,37 @@ public struct TutorialCharacterComponent : IComponentData
 }
 ```
 
-Then, we will modify our `TutorialInputSystem` to gather sprint input and set it into that component. Before the `Entities.ForEach`, we will gather input with `bool sprintInput = Input.GetKey(KeyCode.LeftShift);`, and inside of the `Entities.ForEach`, we will apply it like this: `characterInputs.Sprint = sprintInput;`.
+Then, we will modify our `PlayerSystem` to gather sprint input and set it into that component. Before the `Entities.ForEach`, we will gather input with `bool sprintInput = Input.GetKey(KeyCode.LeftShift);`, and inside of the `Entities.ForEach`, we will apply it like this: `characterInputs.Sprint = sprintInput;`.
 
 ```cs
-// Make the input system update on variable update, and before the FixedStepSimulationSystemGroup (where the character updates)
-[UpdateInGroup(typeof(SimulationSystemGroup), OrderFirst = true)]
-[UpdateBefore(typeof(FixedStepSimulationSystemGroup))]
-public class TutorialInputSystem : SystemBase
+public class PlayerSystem : SystemBase
 {
+    // (...)
+
     protected override void OnUpdate()
-    {        
+    {
+        // (...)
+
+        // Gather raw input
         // (...)
         bool sprintInput = Input.GetKey(KeyCode.LeftShift);
 
-        // Iterate on all TutorialCharacterInputs components to apply input to them
+        // Iterate on all Player components to apply input to their character
         Entities
-            .ForEach((ref TutorialCharacterInputs characterInputs) =>
+            .ForEach((ref Player player) =>
             {
+                // Character control
+                if (HasComponent<TutorialCharacterInputs>(player.ControlledCharacter))
+                {
+                    // (...)
+                    
+                    characterInputs.Sprint = sprintInput;
+
+                    // (...)
+                }
+
+                // Camera control
                 // (...)
-                characterInputs.Sprint = sprintInput;
             }).Schedule();
     }
 }

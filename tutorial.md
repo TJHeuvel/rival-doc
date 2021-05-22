@@ -5,7 +5,9 @@ In this tutorial, we will go through the entire process of creating a new charac
 
 The tutorial can be followed without downloading the final project, but the completed tutorial project can be downloaded here (Note that **you will need to import Rival** into the project for this to work): [Download](./Downloads/Rival_Tutorial.zip)
 
-This tutorial is verified with Unity 2020.3
+This tutorial is verified with Unity 2020.3 and Rival v0.1
+
+Note: Throughout this tutorial, the code samples will often have chunks of excluded code in order to show only the important parts that you need to add or modify. The `// (...)` represents excluded code.
 
 
 ## DOTS
@@ -20,11 +22,12 @@ In order to use Rival, you must know learn to use DOTS. Here are some resources 
 ## Table of Contents
 1. [Project Setup](./Tutorial/tutorial-setup.md)
 1. [Character Creation](./Tutorial/tutorial-charactercreation.md)
+1. [Camera Setup](./Tutorial/tutorial-camera.md)
 1. [Input Handling](./Tutorial/tutorial-input.md)
-1. [Camera Handling](./Tutorial/tutorial-camera.md)
 1. [Sprinting](./Tutorial/tutorial-sprint.md)
 1. [Double-Jump](./Tutorial/tutorial-doublejump.md)
 1. [Character Hits](./Tutorial/tutorial-characterhits.md)
 1. [Enable Dynamics](./Tutorial/tutorial-enabledynamics.md)
 1. [Ignore Collisions With Tag](./Tutorial/tutorial-ignorecollisions.md)
 1. [Friction Surfaces](./Tutorial/tutorial-frictionsurface.md)
+1. [Moving Platforms](./Tutorial/tutorial-movingplatforms.md)
