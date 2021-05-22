@@ -22,5 +22,14 @@ The following are articles about how to implement various character features in 
 - [Step Handling](./How_To/step-handling.md)
 - [Frame-Perfect Rotation](./How_To/frame-perfect-rotation.md)
 - [Navmesh](./How_To/navmesh.md)
+- [Parenting](./How_To/parenting.md)
 - [Networking](./How_To/networking.md)
 - [Moving With Root Motion](./How_To/rootmotion.md)
+- [Determine Character Grounding at a Given Point](./How_To/determine-grounding-at-point.md)
+- [Rotate Camera With Moving Platform](./How_To/rotate-camera-with-platform.md)
+- [Prevent Sliding Along Walls Within a Certain Angle Threshold](./How_To/prevent-sliding-along-wall.md)
+- [Scale Velocity With Slope Angle](./How_To/scale-velocity-with-slope.md)
+- [Have a Max Grounded Distance From a Ledge](./How_To/max-grounded-distance-from-ledge.md)
+- [Strafing / B-Hopping](./How_To/strafing.md)
+
+
