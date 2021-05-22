@@ -27,9 +27,9 @@ The following are articles about how to implement various character features in 
 - [Moving With Root Motion](./How_To/rootmotion.md)
 - [Determine Character Grounding at a Given Point](./How_To/determine-grounding-at-point.md)
 - [Rotate Camera With Moving Platform](./How_To/rotate-camera-with-platform.md)
-- [Prevent Sliding Along Walls Within a Certain Angle Threshold](./How_To/prevent-sliding-along-wall.md)
 - [Scale Velocity With Slope Angle](./How_To/scale-velocity-with-slope.md)
+- [Prevent Sliding Along Walls Within a Certain Angle Threshold](./How_To/prevent-sliding-along-wall.md)
 - [Have a Max Grounded Distance From a Ledge](./How_To/max-grounded-distance-from-ledge.md)
-- [Strafing / B-Hopping](./How_To/strafing.md)
+- [Bunny Hopping](./How_To/bunnyhopping.md)
 
 
