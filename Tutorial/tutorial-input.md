@@ -33,6 +33,8 @@ After creating this component:
 * in the `Player` component inspector, assign the character object to the `ControlledCharacter` field
 * in the `Player` component inspector, assign the camera object to the `ControlledCamera` field
 
+![](../Images/tutorial_player_setup.png)
+
 Next, we will create the `PlayerSystem`, which will handle player input for character & camera control):
 
 ```cs
