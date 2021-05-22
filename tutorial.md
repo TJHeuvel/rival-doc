@@ -31,3 +31,6 @@ In order to use Rival, you must know learn to use DOTS. Here are some resources 
 1. [Ignore Collisions With Tag](./Tutorial/tutorial-ignorecollisions.md)
 1. [Friction Surfaces](./Tutorial/tutorial-frictionsurface.md)
 1. [Moving Platforms](./Tutorial/tutorial-movingplatforms.md)
+1. [Step Handling and Slope Changes](./Tutorial/tutorial-steps-and-slopes.md)
+1. [Jump Pad (add forces to character)](./Tutorial/tutorial-jumppad.md)
+1. [AI Character](./Tutorial/tutorial-ai.md)
