@@ -2,6 +2,8 @@
 
 # Step Handling
 
+See [Tutorial - Step Handling and Slope Changes](../Tutorial/tutorial-steps-and-slopes.md.md)
+
 Step handling is already implemented through the "Processor Callbacks" of the default generated character. It is controlled via the `StepHandling`, `MaxStepHeight`, and `ExtraStepChecksDistance` fields of the character component.
 
 The reason why this is part of the generated character and not part of `KinematicCharacterBody` is because you may want to choose to customize or replace that functionality.
