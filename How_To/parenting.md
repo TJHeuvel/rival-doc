@@ -1,6 +1,6 @@
 
 
-# Parenting
+# Parenting the Character to Another Object
 
 You are not allowed to make the Character object a child of another transform in the usual way (`Parent` component). However, you can do so by setting `KinematicCharacterBody.ParentEntity` to the desired parent entity.
 
