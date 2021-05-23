@@ -18,7 +18,7 @@ These components define the base ECS components that are specific to your charac
 
 ## MyCharacterSystem
 
-The `MyCharacterSystem` schedules a `MyCharacterJob` that iterates on the components of your character. For each character, the `MyCharacterJob` creates a temporary `MyCharacterProcessor` struct, initializes all of its data, calls `MyCharacterProcessor.OnUpdate`, and finally writes back updated data from the `MyCharacterProcessor` to the components.
+The `MyCharacterSystem` schedules a `MyCharacterJob` that iterates on the component types that represent your character. For each character, the `MyCharacterJob` creates a temporary `MyCharacterProcessor` struct, initializes all of its data, calls `MyCharacterProcessor.OnUpdate`, and finally writes back updated data from the `MyCharacterProcessor` to the components.
 
 In short, the role of `MyCharacterSystem` and `MyCharacterJob` is to do all of the setup required to call `MyCharacterProcessor.OnUpdate`.
 
