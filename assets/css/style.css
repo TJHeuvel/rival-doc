@@ -28,7 +28,7 @@ time, mark, audio, video {
 
 /* Base text styles */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   color:#64ccf5;
   margin:36px 0 10px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -46,7 +46,7 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
-h4, h5, h6 {
+h4, h5 {
 	font-weight: bold;
 }
 
@@ -64,6 +64,7 @@ h3 {
 
 h6 {
 	font-size: 15px;
+	font-weight: normal;
 }
 
 a {
