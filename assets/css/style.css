@@ -29,7 +29,7 @@ time, mark, audio, video {
 /* Base text styles */
 
 h1, h2, h3, h4, h5, h6 {
-  color:#bbbbbb;
+  color:#d0d4d5;
   margin:36px 0 10px;
 }
 
@@ -38,14 +38,14 @@ p, ul, ol, table, dl {
 }
 
 h1, h2, h3 {
-	font-family: Arvo, Monaco, serif;
+	font-family: Consolas, monaco, monospace;
   line-height:1.3;
 	font-weight: normal;
 }
 
 h1,h2, h3 {
 	display: block;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #d0d4d5;
 	padding-bottom: 5px;
 }
 
@@ -62,13 +62,14 @@ h3 {
 }
 
 h4, h5, h6 {
-	font-family: Arvo, Monaco, serif;
+	font-family: Consolas, monaco, monospace;
 	font-weight: 700;
 }
 
 a {
   color:#08bd63;
   font-weight:400;
+  text-decoration: none;
 }
 
 a small {
@@ -160,7 +161,7 @@ table {
  }
 
 th {
-  font-family: 'Arvo', Helvetica, Arial, sans-serif;
+  font-family: Consolas, monaco, monospace;
 	font-size: 18px;
 	font-weight: normal;
   padding: 10px;
@@ -181,7 +182,7 @@ td {
 
  body {
   padding:10px 50px 0 0;
-  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Consolas, monaco, monospace;
 	font-size: 16px;
 	color: #bbbbbb;
 	background-color: #1f1f1f;
@@ -214,13 +215,13 @@ section {
 /* Code blocks */
 
 code {
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: Consolas, monaco, monospace;
   color:#dac17d;
   font-size:16px;
 }
 
 pre {
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: Consolas, monaco, monospace;
   color:#dac17d;
   font-size:14px;
   padding: 4px 12px;
