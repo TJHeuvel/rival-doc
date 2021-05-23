@@ -30,7 +30,7 @@ In short, the role of `MyCharacterSystem` and `MyCharacterJob` is to do all of t
 - Implement the character update.
 - Recieve "callbacks" from the core character update loop where you can customize some of the logic that happens there.
 
-### Processor Update
+#### Processor Update
 
 `MyCharacterProcessor.OnUpdate` will call the various core character update steps, in the order that they must be called. See [Utilities](utilities.md) for an in-depth description of these calls.
 
@@ -49,7 +49,7 @@ In short, the role of `MyCharacterSystem` and `MyCharacterJob` is to do all of t
 // reset the jump input request
 ```
 
-### Processor Callbacks
+#### Processor Callbacks
 
 Here is a description of the processor callbacks:
 - `CanCollideWithHit`: return true if the character should be able to collide with the hit, and return false if not. By default, we call `KinematicCharacterUtilities.DefaultMethods.CanCollideWithHit` to avoid colliding with trigger colliders, but you could add additional conditions.
