@@ -29,7 +29,7 @@ time, mark, audio, video {
 /* Base text styles */
 
 h1, h2, h3, h4, h5, h6 {
-  color:#bbbbbb;
+  color:#d0d4d5;
   margin:36px 0 10px;
 }
 
@@ -45,7 +45,7 @@ h1, h2, h3 {
 
 h1,h2, h3 {
 	display: block;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #d0d4d5;
 	padding-bottom: 5px;
 }
 
@@ -69,6 +69,7 @@ h4, h5, h6 {
 a {
   color:#08bd63;
   font-weight:400;
+  text-decoration: none;
 }
 
 a small {
