@@ -37,4 +37,5 @@ The following fields are all either assigned by the user as input to the charact
 - `GroundHit`: The character's current ground hit, if any. Note that a ground hit can exist even if `IsGrounded` is false (it could be a hit where the slope is too steep, for example)
 - `ParentEntity`: The character's parent entity. When a parent entity is set, the character will move along with it as though it was parented to it. This is typically used for moving platform logic
 - `ParentVelocity`: The velocity of the current `ParentEntity`, if any
+- `RotationFromParent`: The rotation that was caused on the character due to the rotation of its parent on this update
 - `PreviousParentEntity`: The previous `ParentEntity`. Used internally by the character update
