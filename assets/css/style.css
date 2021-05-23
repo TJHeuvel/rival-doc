@@ -221,6 +221,7 @@ code {
   font-family: Consolas, monaco, monospace;
   color:#dac17d;
   font-size:16px;
+	line-height: 1.4em;
 }
 
 pre {
