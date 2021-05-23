@@ -1,4 +1,4 @@
-
+Back to [How To](../how-to.md)
 
 # Collision Queries
 There are times when you might want to do a physics query that detects the hits that the character would truly collide with. This could involve a lot of work to do manually, because there are lots of rules that can go into determining which collisions are valid and which aren't (especially with the character processor where you can add some custom code to ignore certain collisions).

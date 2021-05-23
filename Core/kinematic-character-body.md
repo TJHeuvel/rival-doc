@@ -1,4 +1,4 @@
-
+Back to [Core](../core.md)
 
 # Kinematic Character Body
 

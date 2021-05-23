@@ -1,4 +1,4 @@
-
+Back to [Samples](../../samples.md)
 
 # Basic Sample - Camera
 

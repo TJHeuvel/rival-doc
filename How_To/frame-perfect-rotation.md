@@ -1,4 +1,4 @@
-
+Back to [How To](../how-to.md)
 
 # Frame-Perfect Rotation
 The default code-generated character update job, which updates at a fixed timestep, may not always be the ideal place to handle character rotation. It's fine when the character rotates independantly from the camera, but in games like FPSs where the character rotation & camera must be synced 1:1, problems could arise. 

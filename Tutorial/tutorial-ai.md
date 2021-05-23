@@ -1,5 +1,5 @@
 
-[Tutorial](../tutorial.md)
+Back to [Tutorial](../tutorial.md)
 
 # Tutorial - AI Character
 

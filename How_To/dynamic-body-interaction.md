@@ -1,4 +1,4 @@
-
+Back to [How To](../how-to.md)
 
 # Dynamic Body Interactions
 Allowing your character to push and be pushed by dynamic rigidbodies can be achieved by enabling the `SimulateDynamicBody` option in your character's authoring component (or `KinematicCharacterBody.SimulateDynamicBody` if you want to change it at runtime). When this is enabled, the character will apply force on itself and other bodies in order to immitate the behaviour of a true dynamic rigidbody. This uses the `Mass` property of the character's authoring component (or `KinematicCharacterBody.Mass`) to simulate collision mass ratios.
