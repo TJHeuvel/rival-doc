@@ -23,7 +23,7 @@ You can specify the name, namespace (optional), and path of the generated charac
 
 ### Character Implementation Overview
 
-Assumming we chose "MyCharacter" as the character name in the **Character Controller Wizard**,
+Assumming we chose "MyCharacter" as the character name in the **Character Controller Wizard**, here are the files that will be generated:
 
 #### Character Components
 The `MyCharacterAuthoring` component adds all of the required character components to the entity during conversion. Mainly:
@@ -34,7 +34,10 @@ The `MyCharacterAuthoring` component adds all of the required character componen
 #### Character System
 The `MyCharacterSystem` schedules a `MyCharacterJob` that iterates on the components of your character. For each character, the `MyCharacterJob` creates a temporary `MyCharacterProcessor` struct, initializes all of its data, calls `MyCharacterProcessor.OnUpdate`, and finally writes back updated data from the `MyCharacterProcessor` to the components.
 
+In short, the role of `MyCharacterSystem` and `MyCharacterJob` is to do all of the setup required to call `MyCharacterProcessor.OnUpdate`.
+
 #### Character Processor
+`MyCharacterProcessor` is where most of your character logic will be implemented.
 
 `MyCharacterProcessor.OnUpdate` calls all of the major character update steps. These steps handle initializing the character values for the frame, handling parent movement, detecting ground, moving with collisions, detecting moving platforms, etc... Some of them are optional (see the comments in the code), but they must always be called in that order if they are called.
 
