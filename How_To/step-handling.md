@@ -1,4 +1,4 @@
-
+Back to [How To](../how-to.md)
 
 # Step Handling
 
@@ -21,4 +21,4 @@ The `ExtraStepChecksDistance` parameter is used to determine the forward & backw
 
 ## Final note
 
-Step handling is often tricky to get right, and may often be more trouble than it is worth. If you can, you should consider simply **not** using step handling, and instead just place invisible ramp colliders in your level. This is what a lot of games end up doing.
+Step handling can be tricky to get right, and may often be more trouble than it is worth. If you can, you should consider simply **not** using step handling, and instead just place invisible ramp colliders in your level. This is what a lot of games end up doing.

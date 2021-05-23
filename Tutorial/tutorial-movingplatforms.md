@@ -1,5 +1,4 @@
-
-[Tutorial](../tutorial.md)
+Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Moving platforms
 

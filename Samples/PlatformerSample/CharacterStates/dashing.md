@@ -1,6 +1,4 @@
-
-
-[Back to Character](../character.md)
+Back to [Platformer Sample - Character](../character.md)
 
 # Platformer Sample - Dashing
 
