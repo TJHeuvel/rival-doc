@@ -4,9 +4,9 @@ Back to [Core](../core.md)
 
 ## Grounding
 
-In Rival, a character is considered grounded (`KinematicCharacterBody.IsGrounded`) if its `KinematicCharacterBody.GroundHit` satisfies the requirements of your implementation of `IsGroundedOnHit` in your character processor. A `KinematicCharacterBody.GroundHit` can exist even if `KinematicCharacterBody.IsGrounded` is false. For example, if the character is on a very steep slope and sliding down, `GroundHit` will be the slope hit, but `IsGrounded` will be fasle.
+In Rival, a character is considered grounded (`KinematicCharacterBody.IsGrounded`) if its `KinematicCharacterBody.GroundHit` satisfies the requirements of your implementation of `IsGroundedOnHit` in your character processor. A `GroundHit` can exist even if `IsGrounded` is false. For example, if the character is on a very steep slope and sliding down, `GroundHit` will be the slope hit, but `IsGrounded` will be fasle. The default `IsGroundedOnHit` is based on slope angle and the character's velocity relatively to the ground entity's velocity (prevent the character from being grounded if its velocity is escaping the ground entity's velocity when the character is already in air).
 
-`KinematicCharacterBody.GroundHit` can be detected in two ways:
+`GroundHit` can be detected in two ways:
 * by `KinematicCharacterUtilities.GroundingUpdate`
 * by `KinematicCharacterUtilities.MovementAndDecollisionsUpdate`: if the `ConstrainVelocityToGroundPlane` option of your generated character component is false, it will always replace the `KinematicCharacterBody.GroundHit` by any detected hit. If it is true, it will only replace it if the character would be grounded on that hit. See [this page](../How_To/constraining-movement-to-ground.md) for additional details on this.
 
