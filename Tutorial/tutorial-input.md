@@ -34,6 +34,12 @@ After creating this component:
 
 ![](../Images/tutorial_player_setup.png)
 
+This separation of Player, Character, and Camera into 3 separate entities is a pattern that I always highly recommend. It's useful in many cases:
+* when you wish to destroy the Character entity but preserve the Player and its data (example: your character dies and respawns, but you preserve Player data such as name, score, etc...)
+* when you want the same Player to switch the character that they control
+* when you want the same Player to switch the camera that they control
+* etc....
+
 Next, we will create the `PlayerSystem`, which will handle player input for character & camera control):
 
 ```cs
