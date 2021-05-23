@@ -42,3 +42,10 @@ Yes. An Online FPS sample project is available, and it uses proper network predi
 
 ## What kinds of physics shapes does this character controller support?
 Any convex physics shape is supported, and in any orientation. You can have a collision shape based on a capsule, a cylinder, a box, a sphere, etc...
+
+## Can I download this documentation website, and view it locally offline?
+Yes, you can go to the [github repository](https://github.com/PhilSA/rival-doc) of this documentation website, and download the branch corresponding to the version of Rival you have. Once downloaded, the documentation can be viewed with any markdown viewer, by opening `index.md` as a starting point.
+
+For example, you can use [VS Code](https://code.visualstudio.com/) to open the parent folder of the downloaded documentation, and then open the `index.md` file, and press CTRL+Shift+V to open a markdown preview of the selected file.
+
+![](./Images/vscode.png)
