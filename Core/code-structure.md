@@ -12,7 +12,7 @@ These components define the base ECS components that are specific to your charac
 `MyCharacterComponent` contains character movement parameters such as ground move speed, air move speed, gravity, etc...
 
 `MyCharacterInputs` is what the entity that is controlling the character (human controller or AI controller) uses to tell the character how to move:
-* `WorldMoveVector`: a worldspace vector of length 0 to 1, representing the direction & scale of the desired movement
+* `WorldMoveVector`: a worldspace vector of length 0 to 1, representing the direction & scale of the desired movement. The length of this vector represents the fraction of maximum character speed we wish to have in this direction, so a length of 1f will correspond to the max velocity, 0.5f will correspond to half of the max velocity, etc...
 * `JumpRequested`: if the character should jump
 
 
