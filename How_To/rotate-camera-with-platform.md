@@ -2,38 +2,39 @@
 
 # Rotate Camera With Moving Platform
 
-When your character is standing on a moving platform, you may want your camera to rotate along with the character.
+When your character is standing on a moving platform, you may want your camera to be rotated along with the character.
 
-In order to accomplish this, you have to calculate by how much the moving platform rotated the character on a given frame, and rotate the camera by the same amount. One important thing to note, however, is that in most games, the camera will update on variable update while the character will update on fixed update. That means we can't simply make the character remember by how much it got rotated during its update and then add that rotation to the camera, because we would be applying a rotation that happened over a different period of time. 
+In order to accomplish this, we have to find out by how much the moving platform movement rotated the character over the last update, and apply that same rotation to the camera. `KinematicCharacterBody.RotationFromParent` already contains that information. (Reminder: the internal logic for handling moving platforms in Rival simply assigns any valid ground entity as the `KinematicCharacterBody.ParentEntity`. So the moving platform is the "Parent" in this case).
 
-Instead, here's what we could do:
-* The camera keeps track of its followed character's `ParentEntity` is every frame (moving platforms are automatically assigned as the character's `ParentEntity` when the characer becomes grounded on them). It remembers a `public Entity PreviousCharacterParent;` and a `public quaternion PreviousCharacterParentRotation;`.
-* When the camera remembers the `PreviousCharacterParentRotation`, it makes sure to save the **interpolated** rotation of the moving platform. That means we need to use the `LocalToWorld` component of the moving platform entity for rotation; not the `Rotation` component.
-* In the camera's update, call `KinematicCharacterUtilities.ApplyRotationDeltaFromParentMovement` to calculate the rotation that the moving platform would've cause on the character on this frame, and apply that rotation to the camera's rotation.
+However, we have a problem! The character gets rotated by moving platforms on a fixed timestep, but a game gamera will typically update on a variable timestep. So the real rotation we must use in order to rotate our camera is the portion of `KinematicCharacterBody.RotationFromParent` that represents the `deltaTime / fixedDeltaTime` ratio. In other words, if our character rotated by 10 degrees over a fixedDeltaTime of 0.1 seconds, a camera whose deltaTime on this frame is 0.05 must rotate by "(0.05 / 0.1) * 10" = 5 degrees on that frame.
 
-Here is sample code that you could have somewhere in your camera update:
+Here is sample code demonstrating how you could implement this in your own camera system:
 ```cs
-// (...)
+// Camera update
 
-// Make the camera rotate along with the character's moving platform
-if (characterParentEntity != Entity.Null)
+// (.... your own code here )
+
+// Handle rotating the camera along with character's parent entity (moving platform)
+if (HasComponent<KinematicCharacterBody>(myCamera.FollowedCharacter))
 {
-    // Get the current character parent interpolated rotation
-    LocalToWorld parentLocalToWorld = GetComponent<LocalToWorld>(characterParentEntity);
-    quaternion characterParentRotation = quaternion.LookRotationSafe(parentLocalToWorld.Forward, parentLocalToWorld.Up); 
+    // Get the character body component on the character that the camera follows
+    KinematicCharacterBody characterBody = GetComponent<KinematicCharacterBody>(myCamera.FollowedCharacter);
 
-    if (characterParentEntity == myCamera.PreviousParentEntity)
-    {
-        // Calculate & apply the moving platform rotation to the camera
-        KinematicCharacterUtilities.ApplyRotationDeltaFromParentMovement(ref cameraRotation.Value, myCamera.PreviousParentRotation, characterParentRotation, characterGroundingUp, true);
-    }
+    // Calculate the deltaTime ratio compared to the fixedDeltaTime
+    float rotationRatio = math.clamp(deltaTime / fixedDeltaTime, 0f, 1f);
 
-    // Remember parent values for next frame
-    myCamera.PreviousParentRotation = characterParentRotation;
-    myCamera.PreviousParentEntity = characterParentEntity;
+    // Get the portion of the "RotationFromParent" corresponding to the previously calculated "rotationRatio"
+    quaternion rotationFromCharacterParent = math.slerp(quaternion.identity, characterBody.RotationFromParent, rotationRatio);
+
+    // Make our camera rotate by that rotation
+    cameraRotation.Value = math.mul(cameraRotation.Value, rotationFromCharacterParent);
 }
+
+// (.... your own code here )
+
 ```
 
-___________________________
-
-Alternatively, you could also make the character component remember by how much it got rotated during the `KinematicCharacterUtilities.ParentMovementUpdate` of its processor's `OnUpdate`, and then make the camera rotate by a fraction of that rotation corresponding to `(deltaTime / fixedDeltaTime) * characterRotationDelta`
+Note: `fixedDeltaTime` can be obtained like this:
+```cs
+float fixedDeltaTime = World.GetOrCreateSystem<FixedStepSimulationSystemGroup>().FixedRateManager.Timestep;
+```

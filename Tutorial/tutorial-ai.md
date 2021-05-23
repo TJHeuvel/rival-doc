@@ -91,6 +91,8 @@ public class AIControllerSystem : SystemBase
 }
 ```
 
+Note: you could also choose to make the AI detection zones work with trigger colliders instead of a `CalculateDistance` query, if you prefer that approach.
+
 Now you can create a copy of your character object in the Subscene, name it "AICharacter", and add an `AIController` component to it. Set the "DetectionDistance" to 8 for example, and the "DetectionFilter" to "Everything". 
 
 If you press Play, and go near the AICharacter, it should start chasing you.
