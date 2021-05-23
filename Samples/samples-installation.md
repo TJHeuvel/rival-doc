@@ -1,4 +1,4 @@
-Back to [Samples](../../samples.md)
+Back to [Samples](../samples.md)
 
 # Samples - How to Install
 

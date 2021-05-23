@@ -2,7 +2,7 @@ Back to [How To](../how-to.md)
 
 # Prevent Grounding Based on Slope Angle Changes
 
-See [Tutorial - Step Handling and Slope Changes](../Tutorial/tutorial-steps-and-slopes.md.md)
+See [Tutorial - Step Handling and Slope Changes](../Tutorial/tutorial-steps-and-slopes.md)
 
 There are times when you might want your character to not consider itself grounded when it is moving off of a ledge towards no valid grounding, or not be grounded when going over a certain downward change in slope angle. This is so that your character can "launch" off the ledge/slope instead of sticking to it and making the movement feel unnatural. 
 
