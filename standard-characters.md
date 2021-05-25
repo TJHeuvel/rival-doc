@@ -47,6 +47,8 @@ Here is how to set up a Third Person Character in your Subscene:
 * Add the `OrbitCamera` prefab to your Subscene
 * Assign the `ThirdPersonCharacter` to the `ControlledCharacter` field of `ThirdPersonPlayer`
 * Assign the `OrbitCamera` to the `ControlledCamera` field of `ThirdPersonPlayer`
+* Assign either the `ThirdPersonCharacter` or a child object of it to the `InitialFollowedObject` field of `OrbitCameraAuthoring`
+* Assign the `ThirdPersonCharacter` to the `IgnoredEntities` list of `OrbitCameraAuthoring`
 * You can add a `MainEntityCameraAuthoring` component to the `OrbitCamera` in the inspector, or add the `MainEntityCamera` component to it via script
 
 #### Overview
