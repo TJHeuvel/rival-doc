@@ -12,4 +12,7 @@ We will start by creating a project that is set-up for DOTS.
 - Impport the `DOTS Editor` package as well. Follow the same instructions as for the previous step, but search for `com.unity.dots.editor` instead
 - Go to `Edit > Project Settings > Player Settings`, and add `ENABLE_HYBRID_RENDERER_V2` to the `Scripting Define Symbols` list. This enables the up-to-date features of the Hybrid Rendered
 - (RECOMMENDED) Go to `Edit > Project Settings > Editor`. Enable `Enter Play Mode Options`, and make sure the `Reload Domain` and `Reload Scene` underneath are both **disabled**. This will make entering play mode much faster
-- (RECOMMENDED) In the top bar menu: Make sure that `Jobs > Burst > Enable Compilation` is enabled, `Jobs > JobsDebugger` is disabled, and `Jobs > Leak Detection` is **not** set to `Full Stack Traces`. Not doing so will have a significant performance impact when playing in editor
+- (RECOMMENDED) In the top bar menu: Use these settings to avoid in-editor performance issues:
+    - `Jobs > Burst > Enable Compilation` is enabled
+    - `Jobs > JobsDebugger` is disabled
+    - `Jobs > Leak Detection` is set to either "On" or "Off" (**not** `Full Stack Traces`)
