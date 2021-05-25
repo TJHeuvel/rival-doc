@@ -1,14 +1,9 @@
 
 # Standard Characters & Cameras
 
-This is a downloadable package containing the following:
-* First person character scripts & prefabs
-* Third person character scripts & prefabs
-* Orbit Camera scripts & prefabs
-* A "main camera" system to make it easier to deal with cameras in DOTS, while we wait for DOTS-compatible cameras
+Rival comes with a "StandardCharacters" folder containing a "StandardCharacters.unityPackage".
 
-[Download](./Downloads/Rival_StandardCharactersAndCameras.unitypackage)
-
+This package contains the scripts & prefabs required for basic plug-n-play first person and third person character controllers, along with their cameras & rudimentary input handling. You can extract the package into your project, and start customizing the characters & cameras from that starting point.
 
 ## Main Camera
 Since Cameras can't be converted yet in DOTS, we have to do a little workaround to let us implement camera controls in components & systems:
@@ -47,8 +42,8 @@ Here is how to set up a Third Person Character in your Subscene:
 * Add the `OrbitCamera` prefab to your Subscene
 * Assign the `ThirdPersonCharacter` to the `ControlledCharacter` field of `ThirdPersonPlayer`
 * Assign the `OrbitCamera` to the `ControlledCamera` field of `ThirdPersonPlayer`
-* Assign either the `ThirdPersonCharacter` or a child object of it to the `InitialFollowedObject` field of `OrbitCameraAuthoring`
-* Assign the `ThirdPersonCharacter` to the `IgnoredEntities` list of `OrbitCameraAuthoring`
+* Assign the `ThirdPersonCharacter` to the `FollowedCharacter` field of `OrbitCameraAuthoring`
+* Optional: on the `ThirdPersonCharacter` object, you can add a `CameraTarget` component to specify a child transform of the character that will act as the real target of the camera.
 * You can add a `MainEntityCameraAuthoring` component to the `OrbitCamera` in the inspector, or add the `MainEntityCamera` component to it via script
 
 #### Overview
