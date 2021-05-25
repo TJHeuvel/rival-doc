@@ -50,5 +50,5 @@ Here is how to set up a Third Person Character in your Subscene:
 * You can add a `MainEntityCameraAuthoring` component to the `OrbitCamera` in the inspector, or add the `MainEntityCamera` component to it via script
 
 #### Overview
-* This character is nearly identical to the basic [Tutorial](./tutorial.md) at the step where we implement input.
+* This character is nearly identical to the basic [Tutorial](./tutorial.md) character at the step where we implement input.
 * `OrbitCamera` holds parameters for rotation speed, min/max angles, obstruction detection, etc....
