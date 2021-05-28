@@ -8,4 +8,4 @@ Since Cameras can't be converted yet in DOTS, we have to do a little workaround 
 
 Every frame, the `MainCameraSystem` will then copy the position/rotation of the `MainEntityCamera` to the `MainGameObjectCamera`
 
-Also see: [Tutorial - Camera Setup](./Tutorial/tutorial-camera.md) 
+Also see: [Tutorial - Camera Setup](../Tutorial/tutorial-camera.md) 
