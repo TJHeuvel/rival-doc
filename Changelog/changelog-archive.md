@@ -1,12 +1,8 @@
 
-# Changelog
 
-[Previous Versions](./Changelog/changelog-archive.md)
-
-## v0.2
-**Fixes:**
-- Fixed an invalid character present in the Samples project's files, causing compilation errors on certain machines
-- Fixed unassigned spawn point in Basic sample
+## v0.1
+**Features:**
+- Initial package
 
 **Known Issues:**
 - Step Handling can cause errors when Burst compilation is disabled. This issue will require a future Unity.Physics package upgrade before it can be solved.
