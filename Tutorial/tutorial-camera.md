@@ -3,7 +3,7 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Camera Setup
 
-Now we will set up a simple camera. You can start by downloading extracting the "StandardCharacters" package that's included with Rival. We won't use the character scripts contained here for the tutorial, but we will use the camera scripts:
+Now we will set up a simple camera. You can start by downloading & extracting the "StandardCharacters" package that's included with Rival. We won't use the character scripts contained here for the tutorial, but we will use the camera scripts:
 
 We won't go over the camera code in detail, but here is a summary of how it works:
 - Since Unity's `Camera` component cannot be converted to DOTS yet, we need to come up with a way to keep the camera GameObject in the scene, but make it copy the transform of an Entity that represents the camera.
