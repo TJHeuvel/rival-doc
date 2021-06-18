@@ -16,6 +16,7 @@ In order to use Rival, you must know learn to use DOTS. Here are some resources 
 * [ECS Manual](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/index.html)
 * [DOTS Physics Manual](https://docs.unity3d.com/Packages/com.unity.physics@0.6/manual/index.html) 
 * [ECS Samples repository](https://github.com/Unity-Technologies/EntityComponentSystemSamples) on Github. More specifically, the ["Hello Cube"](https://github.com/Unity-Technologies/EntityComponentSystemSamples/tree/master/ECSSamples/Assets/HelloCube) section which covers the basics of programming with components and systems.
+* [DOTS Video Tutorials by Turbo Makes Games](https://www.youtube.com/playlist?list=PLgYNYeZLALscDwwujFSjgXJmdZb_wwYpJ)
 * [DOTS Video Tutorials by Code Monkey](https://www.youtube.com/playlist?list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba)
 
 
