@@ -31,3 +31,10 @@ In order to include the character logic in DOTS NetCode's prediction loop, the f
 ## Networking moving platforms
 
 todo: will come at a later date
+
+
+## Sample
+
+A fully-functional Online FPS sample is included with Rival's samples. Read more about it on the [Sample](../samples.md) page.
+
+Note: In the sample project, the synchronization of character component fields is declared in a `OnlineFPSGhostOverrides` class instead of in the inspector of the character prefab. We do this because of an issue with DOTS netcode where the ghost inspector sometimes won't work under certain conditions, but it should get fixed in a future release of netcode
