@@ -1,13 +1,14 @@
 
 # Standard Characters - First Person Character
 
-#### Setup
-Here is how to set up a First Person Character in your Subscene:
+## Setup
+Here is how to set up a First Person Character:
+* Export the `StandardCharacter_FirstPerson` package, found under the "Rival/StandardCharacters" folder
 * Add the `FirstPersonCharacter` and `FirstPersonPlayer` prefabs to your Subscene [[Screenshot]](../Images/stdcharacters-fp1.png)
 * Assign the `FirstPersonCharacter` to the `ControlledCharacter` field of `FirstPersonPlayer` [[Screenshot]](../Images/stdcharacters-fp2.png)
 * The `View` object under the `FirstPersonCharacter` is what should represent the camera. You can add a `MainEntityCameraAuthoring` component to it in the inspector (or add the `MainEntityCamera` component to it via script) [[Screenshot]](../Images/stdcharacters-fp3.png)
 
-#### Overview
+## Code Overview
 * The `FirstPersonCharacter` authoring component holds a reference to a `CharacterViewTransform`. This transform is meant to represent the "camera point" of the first person character, and must be a direct child of the root character object. During conversion, this becomes the `FirstPersonCharacterComponent.CharacterViewEntity`
 * `FirstPersonPlayer` has configurable look rotation speed & min/max angles
 * `FirstPersonPlayerSystem` handles input. It makes the character move relatively to the character transform orientation, and also calculates a final look direction for the character's `CharacterViewEntity`
