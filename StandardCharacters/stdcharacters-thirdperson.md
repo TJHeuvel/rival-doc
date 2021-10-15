@@ -13,5 +13,13 @@ Here is how to set up a Third Person Character:
 Feel free to rename the exported class/struct/file names at this point using a refactoring tool. Since these files are exported as copies from unitypackages into your project, future Rival updates will not overwrite your changes.
 
 
-## Code Overview
+## Overview
+
+### General
+
+### Components
 * `OrbitCamera` holds parameters for rotation speed, min/max angles, obstruction detection, etc....
+
+### Systems
+
+### Processor
