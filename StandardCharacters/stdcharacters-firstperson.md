@@ -8,6 +8,8 @@ Here is how to set up a First Person Character:
 * Assign the `FirstPersonCharacter` to the `ControlledCharacter` field of `FirstPersonPlayer` [[Screenshot]](../Images/stdcharacters-fp2.png)
 * The `View` object under the `FirstPersonCharacter` is what should represent the camera. You can add a `MainEntityCameraAuthoring` component to it in the inspector (or add the `MainEntityCamera` component to it via script) [[Screenshot]](../Images/stdcharacters-fp3.png)
 
+Feel free to rename the exported class/struct/file names at this point using a refactoring tool. Since these files are exported as copies from unitypackages into your project, future Rival updates will not overwrite your changes.
+
 ## Code Overview
 * The `FirstPersonCharacter` authoring component holds a reference to a `CharacterViewTransform`. This transform is meant to represent the "camera point" of the first person character, and must be a direct child of the root character object. During conversion, this becomes the `FirstPersonCharacterComponent.CharacterViewEntity`
 * `FirstPersonPlayer` has configurable look rotation speed & min/max angles
