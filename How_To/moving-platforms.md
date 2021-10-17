@@ -12,7 +12,7 @@ In order to have a character that can stand on other physics bodies (like a movi
 * set that body entity as the `KinematicCharacterBody.ParentEntity`
 * make sure that body entity has a `TrackedTransform` component (via the `TrackedTransformAuthoring` component)
 
-A `KinematicCharacterUtilities.DefaultMovingPlatformDetection` utility function is available for you to call in your character update, if you want to automatically set the `KinematicCharacterBody.ParentEntity` to whatever body the grounding detection has detected as the ground hit every frame. The default code-generated character already has this, but you can remove it if you want.
+A `KinematicCharacterUtilities.DefaultMovingPlatformDetection` utility function is available for you to call in your character update, if you want to automatically set the `KinematicCharacterBody.ParentEntity` to whatever body the grounding detection has detected as the ground hit every frame. The standard characters already has this, but you can remove it if you want.
 
 ## Pushing and Getting pushed by moving platforms
 

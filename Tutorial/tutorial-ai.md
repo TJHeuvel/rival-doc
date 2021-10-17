@@ -3,7 +3,7 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - AI Character
 
-We will now go over the implementation of very rudimentary AI characters. We want to have characters that detect human-controlled characters at a distance, and start moving towards them as long as they are in their detection range. We will also demonstrate how we can structure things so that we don't have to create a new character controller script for AIs, and we can simply reuse the same that our player character uses.
+We will now go over the implementation of very rudimentary AI characters. We want to have characters that detect human-controlled characters at a distance, and start moving towards them as long as they are in their detection range. We will also demonstrate how we can structure things so that we don't have to create an entirely new character controller for AIs, and we can simply reuse the same that our player character uses.
 
 Let's first create our `AIController` component:
 ```cs
@@ -21,7 +21,6 @@ public struct AIController : IComponentData
     public float DetectionDistance;
     public PhysicsCategoryTags DetectionFilter;
 }
-
 ```
 
 And now the `AIControllerSystem`:
@@ -46,7 +45,7 @@ public class AIControllerSystem : SystemBase
 
         Entities
             .WithDisposeOnCompletion(distanceHits) // Dispose the list when the job is done
-            .ForEach((ref TutorialCharacterInputs characterInputs, in AIController aiController, in TutorialCharacterComponent character, in Translation translation) => 
+            .ForEach((ref ThirdPersonCharacterInputs characterInputs, in AIController aiController, in ThirdPersonCharacterComponent character, in Translation translation) => 
             {
                 // Clear our detected hits list between each use
                 distanceHits.Clear();
@@ -70,7 +69,7 @@ public class AIControllerSystem : SystemBase
                     Entity hitEntity = distanceHits[i].Entity;
 
                     // If it has a character component but no AIController component, that means it's a human player character
-                    if(HasComponent<TutorialCharacterComponent>(hitEntity) && !HasComponent<AIController>(hitEntity))
+                    if(HasComponent<ThirdPersonCharacterComponent>(hitEntity) && !HasComponent<AIController>(hitEntity))
                     {
                         selectedTarget = hitEntity;
                         break; // early out
@@ -80,11 +79,11 @@ public class AIControllerSystem : SystemBase
                 // In the character inputs component, set a movement vector that will make the ai character move towards the selected target
                 if (selectedTarget != Entity.Null)
                 {
-                    characterInputs.WorldMoveVector = math.normalizesafe((GetComponent<Translation>(selectedTarget).Value - translation.Value));
+                    characterInputs.MoveVector = math.normalizesafe((GetComponent<Translation>(selectedTarget).Value - translation.Value));
                 }
                 else
                 {
-                    characterInputs.WorldMoveVector = float3.zero;
+                    characterInputs.MoveVector = float3.zero;
                 }
             }).Schedule();
     }
@@ -93,7 +92,7 @@ public class AIControllerSystem : SystemBase
 
 Note: you could also choose to make the AI detection zones work with trigger colliders instead of a `CalculateDistance` query, if you prefer that approach.
 
-Now you can create a copy of your character object in the Subscene, name it "AICharacter", and add an `AIController` component to it. Set the "DetectionDistance" to 8 for example, and the "DetectionFilter" to "Everything". 
+Now you can create a copy of your character object in the Subscene, name it "AICharacter", and add an `AIController` component to it. Set the `DetectionDistance` to 8 for example, and the `DetectionFilter` to "Everything". 
 
 If you press Play, and go near the AICharacter, it should start chasing you.
 

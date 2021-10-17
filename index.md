@@ -12,7 +12,9 @@ Here are the recommended first steps you should take with Rival:
 
 ## Using the Standard Characters & Cameras
 
-The easiest way to get started is with the [Standard Characters](./standard-characters.md) package included in the Rival package. This package contains pre-made FirstPerson & ThirdPerson characters and cameras. You can add these to your project as a starting point, and start customizing them to your liking.
+The easiest way to get started is with the [Standard Characters](./standard-characters.md) packages included in the Rival package. These packages contain pre-made FirstPerson & ThirdPerson characters and cameras. You can add these to your project as a starting point, and start customizing them to your liking.
+
+The [Tutorial](./tutorial.md) section demonstrates how to use them
 
 
 ## Useful Links

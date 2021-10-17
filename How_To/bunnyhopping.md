@@ -6,7 +6,7 @@ Back to [How To](../how-to.md)
 
 Read more: [Bunnyhopping](https://wiki.sourceruns.org/wiki/Bunnyhopping#:~:text=Bunny%20Hopping%20is%20a%20movement,Engine%20and%20Portal%202%20speedrunning.)
 
-Rival's `CharacterControlUtilities.StandardAirMove` (which is used in the default generated character's `HandleCharacterControl`) calculates air movement in such a way. It has a parameter named `forceNoMaxSpeedExcess`. If this parameter is set to false (it is false by default), and you give your character a high-enough air acceleration (something like 400), you will have a character that can b-hop.
+Rival's `CharacterControlUtilities.StandardAirMove` (which is used in the standard characters' `HandleCharacterControl`) calculates air movement in such a way. It has a parameter named `forceNoMaxSpeedExcess`. If this parameter is set to false (it is false by default), and you give your character a high-enough air acceleration (something like 400), you will have a character that can b-hop.
 
 Here is a top-down visualization of the "Basic Sample" character's velocity (cyan-colored lines) with and without `forceNoMaxSpeedExcess`, while it is doing the b-hop movements.
 

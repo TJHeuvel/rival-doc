@@ -16,20 +16,31 @@ public struct CharacterFrictionSurface : IComponentData
 }
 ```
 
-Then, we need to make that component accessible from our `TutorialCharacterProcessor`. Here's how we can pass extra data to our processor:
-- Add a `public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `TutorialCharacterProcessor` struct
-- Add a `[ReadOnly] public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `TutorialCharacterJob` struct
-- Make `TutorialCharacterSystem` pass that `ComponentDataFromEntity` to the `TutorialCharacterJob`
-- Make `TutorialCharacterJob` pass that `ComponentDataFromEntity` to the `TutorialCharacterProcessor`
+Then, we need to make that component accessible from our `ThirdPersonCharacterProcessor`. Here's how we can pass extra data to our processor:
+- Add a `public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `ThirdPersonCharacterProcessor` struct
+- Add a `[ReadOnly] public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `ThirdPersonCharacterJob` struct
+- Make `ThirdPersonCharacterSystem` pass that `ComponentDataFromEntity` to the `ThirdPersonCharacterJob`
+- Make `ThirdPersonCharacterJob` pass that `ComponentDataFromEntity` to the `ThirdPersonCharacterProcessor`
 
-In short, when we need to add extra data access in `TutorialCharacterProcessor`, we make our `TutorialCharacterSystem` pass that data to the `TutorialCharacterJob`, which in turn passes that data to the `TutorialCharacterProcessor` in its update loop.
+In short, when we need to add extra data access in `ThirdPersonCharacterProcessor`, we make our `ThirdPersonCharacterSystem` pass that data to the `ThirdPersonCharacterJob`, which in turn passes that data to the `ThirdPersonCharacterProcessor` in its update loop.
+
+```cs
+public struct ThirdPersonCharacterProcessor : IKinematicCharacterProcessor
+{
+    // (...)
+
+    public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;
+    
+    // (...)
+}
+```
 
 ```cs
 [UpdateInGroup(typeof(KinematicCharacterUpdateGroup))]
-public class TutorialCharacterSystem : SystemBase
+public class ThirdPersonCharacterSystem : SystemBase
 {
     [BurstCompile]
-    public struct TutorialCharacterJob : IJobEntityBatchWithIndex
+    public struct ThirdPersonCharacterJob : IJobEntityBatchWithIndex
     {
         // (...)
 
@@ -42,7 +53,7 @@ public class TutorialCharacterSystem : SystemBase
         {
             // (...)
 
-            TutorialCharacterProcessor processor = default;
+            ThirdPersonCharacterProcessor processor = default;
             // (...)
             processor.CharacterFrictionSurfaceFromEntity = CharacterFrictionSurfaceFromEntity;
 
@@ -62,7 +73,7 @@ public class TutorialCharacterSystem : SystemBase
     {
         // (...)
 
-        Dependency = new TutorialCharacterJob
+        Dependency = new ThirdPersonCharacterJob
         {
             // (...)
 
@@ -77,7 +88,7 @@ public class TutorialCharacterSystem : SystemBase
 
 ```
 
-At this point, we are ready to use the `CharacterFrictionSurfaceFromEntity` in our character movement implementation in `TutorialCharacterProcessor.HandleCharacterControl`. 
+At this point, we are ready to use the `CharacterFrictionSurfaceFromEntity` in our character movement implementation in `ThirdPersonCharacterProcessor.HandleCharacterControl`:
 
 ```cs
 public void HandleCharacterControl()
@@ -96,6 +107,9 @@ public void HandleCharacterControl()
             targetVelocity *= CharacterFrictionSurfaceFromEntity[CharacterBody.GroundHit.Entity].VelocityFactor;
         }
 
+        CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, ThirdPersonCharacter.GroundedMovementSharpness, DeltaTime, GroundingUp, CharacterBody.GroundHit.Normal);
+
+        // Jump
         // (...)
     }
     else

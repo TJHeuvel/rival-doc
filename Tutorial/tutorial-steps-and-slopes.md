@@ -2,11 +2,11 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Step Handling and Slope Changes
 
-We will now take a moment to try and better understand the step-handling and slope change options that come with the default generated character.
+We will now take a moment to try and better understand the step-handling and slope change options that come with the standard character.
 
 ## Step Handling
 
-The generated character component comes with the following fields:
+The stardard character component comes with the following fields:
 * **Step Handling**: determines if step handling is enabled
 * **Max Step Height**: the max height a character can step over
 * **Extra Steps Check Distance**: the horizontal distance of extra raycasts used to detect valid steps
@@ -26,7 +26,7 @@ See [Step Handling](../How_To/step-handling.md) for a more in-depth explanation
 
 ## Slope Changes
 
-The generated character component comes with the following fields:
+The standard character component comes with the following fields:
 * **Prevent Grounding When Moving Towards No Grounding**: Makes the character not consider itself grounded when moving off of a ledge
 * **Has Max Downward Slope Change Angle**: Determines if we'll prevent grounding based on slope angle change
 * **Max Downward Slope Change Angle**: the angle (degrees) used for preventing grounding based on slope angle change

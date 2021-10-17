@@ -18,4 +18,4 @@ CapsuleCollider* capsuleCollider = (CapsuleCollider*)PhysicsCollider.ColliderPtr
 capsuleCollider->Geometry.Radius = 1f; // edit the Geometry of the collider
 ```
 
-Note that you'll need to make sure that the function in which you do this has the `unsafe` declaration, although `MyCharacterProcessor.OnUpdate` and `MyCharacterProcessor.HandleCharacterControl` should already have it. You must also not forget to write back to the `PhysicsCollider` component in the `MyCharacterSystem.MyCharacterJob`, but then again this is already the case in the generated character code.
+Note that you'll need to make sure that the function in which you do this has the `unsafe` declaration, although your character processor's `OnUpdate` and `HandleCharacterControl` should already have it if it came from the standard characters. You must also not forget to write back to the `PhysicsCollider` component in the character update job, but then again this is already the case in the standard characters code.

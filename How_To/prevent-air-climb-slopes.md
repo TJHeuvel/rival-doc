@@ -2,11 +2,11 @@ Back to [How To](../how-to.md)
 
 # Prevent Air-Climbing Slopes
 
-If you try to move your default code-generated character in air against an ungrounded (steep) slope with a high `AirAcceleration`, you might notice that the character can actually air-climb the slope because its acceleration is stronger than gravity. This outcome is physically-accurate in theory, but it is often unwanted, so we need to find a way to avoid it.
+If you try to move your standard characters in air against an ungrounded (steep) slope with a high `AirAcceleration`, you might notice that the character can actually air-climb the slope because its acceleration is stronger than gravity. This outcome is physically-accurate in theory, but it is often unwanted, so we need to find a way to avoid it.
 
 ![](../Images/howto_airclimb.gif)
 
-A recommended way to solve this is to remove the added air velocity that is caused by inputs if our final character velocity would make us collide with an ungrounded hit. Here is sample code to demonstrate how to implement this in your `MyCharacterProcessor.HandleCharacterControl`:
+A recommended way to solve this is to remove the added air velocity that is caused by inputs if our final character velocity would make us collide with an ungrounded hit. Here is sample code to demonstrate how to implement this in your character processor's `HandleCharacterControl`:
 
 ```cs
 public void HandleCharacterControl()

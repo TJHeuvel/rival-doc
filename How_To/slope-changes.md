@@ -6,12 +6,12 @@ See [Tutorial - Step Handling and Slope Changes](../Tutorial/tutorial-steps-and-
 
 There are times when you might want your character to not consider itself grounded when it is moving off of a ledge towards no valid grounding, or not be grounded when going over a certain downward change in slope angle. This is so that your character can "launch" off the ledge/slope instead of sticking to it and making the movement feel unnatural. 
 
-The default generated character comes with parameters for this:
+The standard characters come with parameters for this:
 * `PreventGroundingWhenMovingTowardsNoGrounding`: prevents sticking to the ground when moving off of a ledge towards no valid grounding
 * `HasMaxDownwardSlopeChangeAngle`: prevent sticking to the ground when moving over a downward slope change
 * `MaxDownwardSlopeChangeAngle`: max angle in degrees where we can stick to the ground when moving over a downward slope change
 
-These fields are used in your character processor in `IsGroundedOnHit`. `KinematicCharacterUtilities.DefaultMethods.DetectFutureSlopeChange` is called here, and it handles detecting how the slope angle will change ahead of the character, and whether or not the character is heading towards the "no valid grounding" side of a ledge. Here's a depiction of what it does:
+These fields are used in your character processor in `PreventGroundingFromFutureSlopeChange()`. `KinematicCharacterUtilities.DefaultMethods.DetectFutureSlopeChange` is called here, and it handles detecting how the slope angle will change ahead of the character, and whether or not the character is heading towards the "no valid grounding" side of a ledge. Here's a depiction of what it does:
 
 ![](../Images/howto_slopechangedetection.png)
 

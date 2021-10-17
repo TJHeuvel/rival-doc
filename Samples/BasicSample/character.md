@@ -2,7 +2,7 @@ Back to [Samples](../../samples.md)
 
 # Basic Sample - Character
 
-The Basic character uses a structure that is very similar to the default code-generated character. The main additions are found in the `BasicCharacterProcessor`, where logic is implemented to allow the following features:
+The Basic character uses a structure that is very similar to the standard characters. The main additions are found in the `BasicCharacterProcessor`, where logic is implemented to allow the following features:
 * Ignore grounding on physics bodies that have a certain physics tag
 * Ignore collisions on physics bodies that have a certain physics tag
 * Ignore step handling on physics bodies that have a certain physics tag

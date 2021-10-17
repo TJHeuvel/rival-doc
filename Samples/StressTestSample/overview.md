@@ -2,7 +2,7 @@ Back to [Samples](../../samples.md)
 
 # StressTest Sample - Overview
 
-The character in this sample is very close to the default code-generated character, with the exception that it has options to turn on and off certain features.
+The character in this sample is very close to the standard characters, with the exception that it has options to turn on and off certain features.
 
 `StressTestManager` handles all the rest of the logic in this sample. Here are the various options:
 - **Spawn button**: spawns characters 
