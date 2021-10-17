@@ -37,3 +37,7 @@ First person characters have a particularity when it comes to their rotation han
 * `FirstPersonPlayerSystem` handles input and sets that input data into the character's `FirstPersonCharacterInputs` component
 * `FirstPersonCharacterMovementSystem` handles character translation movement & collision detection on fixed update
 * `FirstPersonCharacterRotationSystem` handles the rotation of both the parent character object & the `View` object on variable update.
+
+
+### Other
+* `FirstPersonCharacterUtilities` contains various utility functions for calculation character & view rotations
