@@ -4,9 +4,9 @@ Back to [How To](../how-to.md)
 
 See [Tutorial - Step Handling and Slope Changes](../Tutorial/tutorial-steps-and-slopes.md.md)
 
-Step handling is already implemented through the "Processor Callbacks" of the default generated character. It is controlled via the `StepHandling`, `MaxStepHeight`, and `ExtraStepChecksDistance` fields of the character component.
+Step handling is already implemented through the "Processor Callbacks" of the standard characters. It is controlled via the `StepHandling`, `MaxStepHeight`, and `ExtraStepChecksDistance` fields of the character component.
 
-The reason why this is part of the generated character and not part of `KinematicCharacterBody` is because you may want to choose to customize or replace that functionality.
+The reason why this is part of the user-implemented processor and not part of `KinematicCharacterBody` is because you may want to choose to customize or replace that functionality.
 
 In your character processor's `OnMovementHit`, `KinematicCharacterUtilities.DefaultMethods.OnMovementHit` is called, and this internally calls `CheckForSteppingUpHit`. This will cast colliders to detect steps forward at a certain height. If successful, the character's translation will be moved up to match the detected step height. So on the next movement iteration, the collider cast will not detect an obstruction, and movement will proceed as normal. Here's a representation of what `CheckForSteppingUpHit` does. It casts the character shape up, forward, and then down in order to detect a valid step, and if it does, it moves the character upwards at the height of the step:
 

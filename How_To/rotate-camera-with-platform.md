@@ -15,4 +15,4 @@ Note: `fixedDeltaTime` can be obtained like this:
 float fixedDeltaTime = World.GetOrCreateSystem<FixedStepSimulationSystemGroup>().FixedRateManager.Timestep;
 ```
 
-Note: The `OrbitCameraSystem` in the "StandardCharacters" packages shows an example of this
+Note: The `OrbitCameraSystem` in the standard third person character shows an example of this

@@ -12,9 +12,13 @@ Several weapons systems are part of the `GhostPredictionSystemGroup`, because la
 
 `ShootingSystem` Handles listening for shoot input based on the `OnlineFPSPlayerCommands` of a given player, and then informs the `Weapon` component of the active weapon that a shot is requested.
 
-`RailgunSystem` Handles the actual shooting for the railgun weapon. It looks at the `Weapon` component to determine if a shot is requested, and if so, handles all the firing logic (raycast for shot hits, apply damage, handle firing rate, spawn VFX, etc....).
+`RailgunSystem` Handles the actual shooting for the railgun weapon. It looks at the `Weapon` component to determine if a shot is requested, and if so, handles all the firing logic (raycast for shot hits, apply damage, handle firing rate, create VFX events, etc....).
 
-The railgun shot VFX requires some special handling due to the fact that shots are part of the prediction group. If we spawned the lazer VFX every time the weapon shot, we would often end up spawning the vfx multiple times. This is because of the rollback and re-simulation associated with the prediction system. The shooting of the weapon will be re-simulated several times on the frames folloing the actual shot during prediction. To solve this issue, we only spawn the shot VFX if the shot is happening on the tick that represents the "present" frame (as opposed to something that happened in the past and is being re-simulated). `PredictionInitializationSystem.IsFirstFullPresentTick` handles calculating that condition for us.
+## Weapon shot VFX
+The railgun shot VFX requires some special handling due to the fact that shots are part of the prediction group. If we spawned the lazer VFX every time the weapon shot, we would often end up spawning the vfx multiple times, because of the rollback and re-simulation associated with the prediction system. To solve this issue, we add shot events to a `DynamicBuffer<RailgunVisualShootEvent>` on the railgun entity during the update of the `RailgunSystem`, but we only process those events in the `RailgunVisualShootEventSystem` which runs in the regular non-predicted `SimulationSystemGroup`. This means we'll only spawn the railgun shot VFX if it shot on the last frame that was simulated.
+
+On the server, `RailgunVisualShootEventSystem` will send a `RailgunVisualShootEventRPC` to all clients except the owner of the railgun, asking them to spawn that VFX as well. Those RPCs are processed in `RailgunVisualShootEventRPCReceiveSystem`
+
 
 ## Weapon animation
 `WeaponAnimationSystem` Handles weapon bobbing, recoil, and aiming FOV zooming.

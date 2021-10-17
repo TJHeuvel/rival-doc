@@ -23,9 +23,7 @@ In order to use Rival, you must learn to use DOTS. Here are some resources to he
 ## Tutorial Sections
 
 1. [Project Setup](./Tutorial/tutorial-setup.md)
-1. [Character Creation](./Tutorial/tutorial-charactercreation.md)
-1. [Camera Setup](./Tutorial/tutorial-camera.md)
-1. [Input Handling](./Tutorial/tutorial-input.md)
+1. [Standard Character Setup](./Tutorial/tutorial-charactersetup.md)
 1. [Sprinting](./Tutorial/tutorial-sprint.md)
 1. [Double-Jump](./Tutorial/tutorial-doublejump.md)
 1. [Character Hits](./Tutorial/tutorial-characterhits.md)

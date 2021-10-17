@@ -3,7 +3,9 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Character Hits
 
-Now we will look at how we can iterate on character hits. We will create a new system that updates after the `KinematicCharacterUpdateGroup`, and iterates on all `DynamicBuffer<KinematicCharacterHit>`. This is a buffer containing all hits detected during the character update, therefore we must iterate on it *after* the entire character update is finished if we want all detected hits to be present.
+Now we will look at how we can iterate on character hits. 
+
+We will create a new system that updates after the `KinematicCharacterUpdateGroup`, and iterates on all `DynamicBuffer<KinematicCharacterHit>`. During the character update, all hits that have been detected are added to this buffer. Therefore we must iterate on it *after* the entire character update is finished if we want all detected hits to be present.
 
 We will also create a second job iterating on `DynamicBuffer<StatefulKinematicCharacterHit>`. These hits are similar to `KinematicCharacterHit`, except they also keep track of the state of the hit (Enter, Exit, Stay).
 

@@ -8,14 +8,14 @@ In Rival, a character is considered grounded (`KinematicCharacterBody.IsGrounded
 
 `GroundHit` can be detected in two ways:
 * by `KinematicCharacterUtilities.GroundingUpdate`
-* by `KinematicCharacterUtilities.MovementAndDecollisionsUpdate`: if the `ConstrainVelocityToGroundPlane` option of your generated character component is false, it will always replace the `KinematicCharacterBody.GroundHit` by any detected hit. If it is true, it will only replace it if the character would be grounded on that hit. See [this page](../How_To/constraining-movement-to-ground.md) for additional details on this.
+* by `KinematicCharacterUtilities.MovementAndDecollisionsUpdate`: if the `ConstrainVelocityToGroundPlane` option of your standard characters is false, it will always replace the `KinematicCharacterBody.GroundHit` by any detected hit. If it is true, it will only replace it if the character would be grounded on that hit. See [this page](../How_To/constraining-movement-to-ground.md) for additional details on this.
 
 Moreover, every `KinematicCharacterHit` detected by the character has its own `IsGroundedOnHit`. This is used internally by the character update to determine if the character should slide towards the sides of a steep slope, if we should replace the `GroundHit`, etc...
 
 Grounding can have various effects on character movement, depending on the various options in `KinematicCharacterBody`:
 * if `KinematicCharacterBody.SnapToGround` is true, the character will constantly adjust its position to "snap" right back to the ground whenever there is any distance between it and the ground hit
-* `ConstrainVelocityToGroundPlane` option of your generated character component is true, the character will not bump into the air when moving towards a slope that is too steep, and will instead slide towards the sides while sticking to the ground. If that option is false, the character will act more like a regular rigidbody and will bump up into the air
-* The standard code generated character grounded velocity control handles velocity differently based on whether the character is grounded or not. Moreover, `CharacterControlUtilities.StandardGroundMove_Interpolated` will always reorient the target velocity on the ground plane by default.  
+* if the `ConstrainVelocityToGroundPlane` option of your standard characters is true, the character will not bump into the air when moving towards a slope that is too steep, and will instead slide towards the sides while sticking to the ground. If that option is false, the character will act more like a regular rigidbody and will bump up into the air
+* The standard character grounded velocity control handles velocity differently based on whether the character is grounded or not. Moreover, `CharacterControlUtilities.StandardGroundMove_Interpolated` will always reorient the target velocity on the ground plane by default.  
 * When the character needs to decollide itself from a hit where it is considered grouded, it will decollide only in the direction of its `GroundingUp`. This helps with standing on moving platforms that can rotate around all axis, without having the character drift to the sides.
 
 
