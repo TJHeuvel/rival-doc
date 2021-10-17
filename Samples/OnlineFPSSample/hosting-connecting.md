@@ -11,7 +11,7 @@ In order to play the OnlineFPS, you need to either host a game, or connect to a 
 
 It is recommended that you build the game before you try playing online. To build the game, navigate to the "BuildConfig" folder under the "Sample_OnlineFPS" folder, find the config named "OnlineFPSClientBuildConfig", and press "Build" in the top right. Despite its name, the "OnlineFPSClientBuildConfig" is also able to host games. "OnlineFPSServerBuildConfig" is for when you want a server-only build that is in headless (no rendering) mode.
 
-NOTE: At the time of writing this, there is a bug with the HybridRenderer causing the lightmaps not to appear in builds unless the scene containing the lightmaps is currently open in editor at the time of building. So before you build, open the "OnlineFPS" scene in the editor.
+NOTE: At the time of writing this, there is a bug with the HybridRenderer causing the lightmaps not to appear in builds unless the scene containing the lightmaps is currently open in editor at the time of building. In order to solve this, make sure your have the "OnlineFPS" scene opened in the editor at the moment of launching the build.
 
 
 ## Hosting a game
@@ -27,6 +27,6 @@ NOTE 2: If people still can't connect to your game even after forwarding the por
 
 To connect to a game/server, you must enter the IP and port of the desired server in the "Join IP" and "Join Port" fields. Once this is done, press the "Join Game" button.
 
-The "Join IP" is the public IP of the server. You can get the public IP by going to https://www.whatismyip.com/ on the computer that is hosting the game.
+The "Join IP" is the public IP of the server. You can get the public IP by going to [https://www.whatismyip.com/](https://www.whatismyip.com/) on the computer that is hosting the game.
 
 The "Join Port" is the port that the server specified as their "Host Port".

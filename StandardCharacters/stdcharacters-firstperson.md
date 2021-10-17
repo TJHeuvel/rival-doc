@@ -40,4 +40,4 @@ First person characters have a particularity when it comes to their rotation han
 
 
 ### Other
-* `FirstPersonCharacterUtilities` contains various utility functions for calculation character & view rotations
+* `FirstPersonCharacterUtilities` contains various utility functions for the calculation of character & view rotations
