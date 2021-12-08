@@ -5,7 +5,7 @@ Back to [Tutorial](../tutorial.md)
 
 We will now go through the process of creating a new basic character, using the "StandardCharacters_ThirdPerson" package.
 
-Start by double-clicking the `Assets/Rival/StandardCharacters/StandardCharacters_ThirdPerson` package, and exporting it into your new project
+Start by double-clicking the `Assets/Rival/StandardCharacters/StandardCharacters_ThirdPerson` package, and importing it into your new project
 
 ![](../Images/tutorial_exportcharacter.png)
 
