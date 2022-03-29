@@ -25,7 +25,7 @@ There are usually two reasons why we find it useful to make the "player" and the
 * This setup makes it easy to create both human controllers and AI controllers that can "take control" of the same kind of character prefab, without having to write different character scripts for human & AI characters
 * In typical games, when a character dies and its object is destroyed, we often want the concept of the "player" to persist nonetheless. The player can keep holding data (score, etc....) even though its controlled character has been destroyed, can switch to controlling a spectator camera while awaiting respawn, and can take back control of a newly-spawned character object once their character has respawned. This setup also facilitates switching a player's controlled character/vehicle/etc... during play
 
-The `ThirdPersonPlayer` controls not only the character, but also the camera (which is a separate object). It acts as a central point for coordinating the two. Since AI characters should not have any concept of a "camera", it is important that the `ThirdPersonCharacterSystem` doesn't have camera knowledge. This is why camera is handled by the "human player" instead.
+The `ThirdPersonPlayer` controls not only the character, but also the camera (which is a separate object). It acts as a central point for coordinating the two. Since AI characters should not have any concept of a "camera", it is important that the `ThirdPersonCharacterMovementSystem` doesn't have camera knowledge. This is why camera is handled by the "human player" instead.
 
 
 ### Components

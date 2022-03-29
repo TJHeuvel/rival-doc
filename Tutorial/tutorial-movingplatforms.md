@@ -49,7 +49,7 @@ using Unity.Transforms;
 
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 [UpdateBefore(typeof(BuildPhysicsWorld))]
-public class MovingPlatformSystem : SystemBase
+public partial class MovingPlatformSystem : SystemBase
 {
     protected override void OnUpdate()
     {

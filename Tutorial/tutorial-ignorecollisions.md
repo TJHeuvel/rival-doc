@@ -33,7 +33,7 @@ public struct ThirdPersonCharacterProcessor : IKinematicCharacterProcessor
     public bool CanCollideWithHit(in BasicHit hit)
     {
         // First, see if we'd have to ignore based on the default implementation
-        if (!KinematicCharacterUtilities.DefaultMethods.CanCollideWithHit(in hit, in CharacterBodyFromEntity))
+        if (!KinematicCharacterUtilities.DefaultMethods.CanCollideWithHit(in hit, in StoredKinematicCharacterBodyPropertiesFromEntity))
         {
             return false;
         }

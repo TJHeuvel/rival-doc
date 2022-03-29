@@ -24,7 +24,7 @@ public struct JumpPad : IComponentData
 Then, add a cube to the Subscene with the following components:
 * a box PhysicsShape with a "Raise Trigger Events" collision response
 * a `JumpPad`, with its `JumpForce` set to (0, 20f, 0) for example
-* a `DynamicBufferTriggerEventAuthoring` (this component is from the downloaded files at the top of this page)
+* a `StatefulTriggerEventBufferAuthoring` (this component is from the downloaded files at the top of this page)
 
 Now let's create our `JumpPadSystem`. See comments in code for explanations:
 ```cs
@@ -41,10 +41,8 @@ using Rival;
 
 // Update after physics but before characters
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
-[UpdateAfter(typeof(TriggerEventConversionSystem))]
-[UpdateAfter(typeof(EndFramePhysicsSystem))]
-[UpdateBefore(typeof(KinematicCharacterUpdateGroup))]
-public class JumpPadSystem : SystemBase
+[UpdateAfter(typeof(StatefulTriggerEventBufferSystem))]
+public partial class JumpPadSystem : SystemBase
 {
     protected override void OnUpdate()
     {
@@ -52,34 +50,34 @@ public class JumpPadSystem : SystemBase
         Entities
             .WithoutBurst()
             .ForEach((Entity entity, in Rotation rotation, in JumpPad jumpPad, in DynamicBuffer<StatefulTriggerEvent> triggerEventsBuffer) =>
-        {
-            // Go through each trigger event of the jump pad...
-            for (int i = 0; i < triggerEventsBuffer.Length; i++)
             {
-                StatefulTriggerEvent triggerEvent = triggerEventsBuffer[i];
-                Entity otherEntity = triggerEvent.GetOtherEntity(entity);
-
-                // If a character has entered the trigger...
-                if (triggerEvent.State == EventOverlapState.Enter && HasComponent<KinematicCharacterBody>(otherEntity))
+                // Go through each trigger event of the jump pad...
+                for (int i = 0; i < triggerEventsBuffer.Length; i++)
                 {
-                    KinematicCharacterBody characterBody = GetComponent<KinematicCharacterBody>(otherEntity);
+                    StatefulTriggerEvent triggerEvent = triggerEventsBuffer[i];
+                    Entity otherEntity = triggerEvent.GetOtherEntity(entity);
 
-                    // Cancel out character velocity in the jump force's direction
-                    // (this helps make the character jump up even if it is falling down on the jump pad at high speed)
-                    characterBody.RelativeVelocity = MathUtilities.ProjectOnPlane(characterBody.RelativeVelocity, math.normalizesafe(jumpPad.JumpForce));
+                    // If a character has entered the trigger...
+                    if (triggerEvent.State == StatefulEventState.Enter && HasComponent<KinematicCharacterBody>(otherEntity))
+                    {
+                        KinematicCharacterBody characterBody = GetComponent<KinematicCharacterBody>(otherEntity);
 
-                    // Add the jump pad force to the character
-                    characterBody.RelativeVelocity += jumpPad.JumpForce;
+                        // Cancel out character velocity in the jump force's direction
+                        // (this helps make the character jump up even if it is falling down on the jump pad at high speed)
+                        characterBody.RelativeVelocity = MathUtilities.ProjectOnPlane(characterBody.RelativeVelocity, math.normalizesafe(jumpPad.JumpForce));
 
-                    // Unground the character
-                    // (without this, the character would snap right back to the ground on the next frame)
-                    characterBody.Unground();
+                        // Add the jump pad force to the character
+                        characterBody.RelativeVelocity += jumpPad.JumpForce;
 
-                    // Don't forget to write back to the component
-                    SetComponent(otherEntity, characterBody);
+                        // Unground the character
+                        // (without this, the character would snap right back to the ground on the next frame)
+                        characterBody.Unground();
+
+                        // Don't forget to write back to the component
+                        SetComponent(otherEntity, characterBody);
+                    }
                 }
-            }
-        }).Run();
+            }).Run();
     }
 }
 ```

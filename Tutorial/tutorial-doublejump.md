@@ -39,7 +39,7 @@ public void HandleCharacterControl()
         // Air Jumps
         if (ThirdPersonCharacterInputs.JumpRequested && ThirdPersonCharacter.CurrentAirJumps < ThirdPersonCharacter.MaxAirJumps)
         {
-            CharacterControlUtilities.StandardJump(ref CharacterBody, GroundingUp * ThirdPersonCharacter.JumpSpeed, true, GroundingUp);
+            CharacterControlUtilities.StandardJump(ref CharacterBody, GroundingUp * ThirdPersonCharacter.JumpSpeed, true, ThirdPersonCharacter.GroundingUp);
             ThirdPersonCharacter.CurrentAirJumps++;
         }
 
