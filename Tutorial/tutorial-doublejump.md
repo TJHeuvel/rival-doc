@@ -2,7 +2,7 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Double Jump
 
-We will now add the ability to allow up to X additional while in air. 
+We will now add the ability to allow up to X additional jumps while in air. 
 
 We will start by adding an int field in `ThirdPersonCharacterComponent` to determine how many air jumps we are allowed to do, and we will also add a hidden int field to keep track of how many air jumps we've done so far.
 
@@ -46,8 +46,6 @@ public void HandleCharacterControl()
         // Gravity
         // (...)
     }
-
-    // (...)
 }
 ```
 

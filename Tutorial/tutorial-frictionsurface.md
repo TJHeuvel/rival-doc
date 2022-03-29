@@ -116,8 +116,6 @@ public void HandleCharacterControl()
     {
         // (...)
     }
-    
-    // (...)
 }
 ```
 

@@ -3,21 +3,21 @@ Back to [Samples](../../samples.md)
 # OnlineFPS Sample - Weapons
 
 ## Assigning a weapon to a character
-`CharacterSpawningSystem` handles spawning and assigning a weapon to a character when spawned.
+`ServerGameSystem` handles spawning a weapon for each character that it spawns, and assigning it as the character's `ActiveWeapon`. This is done in the job named "ServerSpawnCharactersJob"
 
-`WeaponAssignmentSystem` Handles assigning a weapon ghost instance to a character, as the "active" held weapon. It looks for active weapon ghost Id changes in the `ActiveWeapon` component, and parents the new active weapon's ghost entity to the character's active weapon socket transform if a change was detected.
+Then, `WeaponAssignmentSystem` iterates on all `ActiveWeapon` (on all characters), and handles doing the weapon setup whenever a change in active weapon is detected. Here we handle parenting the weapon to the FPS character view transform, and we set the weapon's `ShootOriginOverride` as our view entity. This is a trick most FPS games use to make sure the weapon shot raycasts start from the center of the camera and land exactly in the middle of the screen.
+
 
 ## Weapon shooting
-Several weapons systems are part of the `GhostPredictionSystemGroup`, because lag-compensation is crucial for their accuracy in fast-paced games.
+First, the `OnlineFPSPlayerControlSystem` (part of the `GhostPredictionSystemGroup`) reads player commands and sets `weapon.ShootRequested = playerCommands.ShootRequested;` on the player's weapon.
 
-`ShootingSystem` Handles listening for shoot input based on the `OnlineFPSPlayerCommands` of a given player, and then informs the `Weapon` component of the active weapon that a shot is requested.
+Then, `RailgunSystem` (also part of the `GhostPredictionSystemGroup`) iterates on every `Railgun` + `Weapon`, and if `weapon.ShootRequested` is true, it handles shooting
 
-`RailgunSystem` Handles the actual shooting for the railgun weapon. It looks at the `Weapon` component to determine if a shot is requested, and if so, handles all the firing logic (raycast for shot hits, apply damage, handle firing rate, create VFX events, etc....).
 
 ## Weapon shot VFX
-The railgun shot VFX requires some special handling due to the fact that shots are part of the prediction group. If we spawned the lazer VFX every time the weapon shot, we would often end up spawning the vfx multiple times, because of the rollback and re-simulation associated with the prediction system. To solve this issue, we add shot events to a `DynamicBuffer<RailgunVisualShootEvent>` on the railgun entity during the update of the `RailgunSystem`, but we only process those events in the `RailgunVisualShootEventSystem` which runs in the regular non-predicted `SimulationSystemGroup`. This means we'll only spawn the railgun shot VFX if it shot on the last frame that was simulated.
+The railgun shot VFX requires some special handling due to the fact that shots are part of the prediction group. If we spawned the lazer VFX every time the weapon shot, we would often end up spawning the vfx multiple times, because of the rollback and re-simulation associated with the prediction system. 
 
-On the server, `RailgunVisualShootEventSystem` will send a `RailgunVisualShootEventRPC` to all clients except the owner of the railgun, asking them to spawn that VFX as well. Those RPCs are processed in `RailgunVisualShootEventRPCReceiveSystem`
+To solve this issue, the `RailgunSystem` will only spawn shot VFX on ticks that are higher than the last tick we remember shooting at (this last tick is store in the `Railgun` component, as `_lastTickShot`)
 
 
 ## Weapon animation

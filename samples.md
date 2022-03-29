@@ -34,7 +34,7 @@ This sample demonstrates a complex character controller with a wide variety of s
 
 ![](./Images/onlinefps_sample.png)
 
-This sample demonstrates a fast-paced, client-predicted online FPS game implemented with DOTS Netcode. You can launch the game from the "OnlineFPSMenu" scene.
+This sample demonstrates a fast-paced, client-predicted online FPS game implemented using DOTS Netcode. You can launch the game from the "OnlineFPSMenu" scene.
 - [Hosting & Connecting](./Samples/OnlineFPSSample/hosting-connecting.md)
 - [Game Management](./Samples/OnlineFPSSample/game-management.md)
 - [Character & Camera](./Samples/OnlineFPSSample/character-and-camera.md)

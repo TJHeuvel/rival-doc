@@ -38,5 +38,6 @@ The `ThirdPersonPlayer` controls not only the character, but also the camera (wh
 
 ### Systems
 * `ThirdPersonPlayerSystem` handles input and sets that input data into the character's `ThirdPersonCharacterInputs` component
-* `ThirdPersonCharacterSystem` handles character translation movement, rotation & collision detection on fixed update
+* `ThirdPersonCharacterMovementSystem` handles character translation movement & collision detection on fixed update
+* `ThirdPersonCharacterRotationSystem` handles character rotation on variable update
 * `OrbitCameraSystem` handles camera movement

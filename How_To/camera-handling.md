@@ -2,6 +2,11 @@ Back to [How To](../how-to.md)
 
 # Camera Handling
 
+## General
+
+See [Standard Characters - Main Camera](../StandardCharacters/stdcharacters-maincamera.md)
+
+
 ## Dealing with character interpolation
 
 The camera should always follow the interpolated character transform; not just the raw Translation/Rotation component values. Following the non-interpolated character transform will often result in jitter.

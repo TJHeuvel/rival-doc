@@ -10,6 +10,7 @@ The core components added to the character entity during conversion are:
 - `PhysicsMass`
 - `PhysicsGravityFactor`
 - `PhysicsCustomTags`
+- `StoredKinematicCharacterBodyProperties`
 - `CharacterInterpolation` (optional depending on configuration)
 - `DynamicBuffer<KinematicCharacterHit>`
 - `DynamicBuffer<KinematicVelocityProjectionHit>`

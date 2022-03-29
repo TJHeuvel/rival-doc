@@ -25,10 +25,6 @@ In this section, we will assume we are working with a character processor struct
     // accelerate velocity towards input direction for air control
     // add gravity
     // apply drag
-
-// rotate the character towards its move direction (if there is any move input)
-
-// reset the jump input request
 ```
 
 

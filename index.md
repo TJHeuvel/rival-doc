@@ -2,12 +2,14 @@
 
 ![](./Images/logo.png)
 
-NOTE: Currently, you must use Unity 2020.3 when using Rival. This is the version recommended by Unity for all DOTS projects until further notice
+NOTE: Currently, you must use Unity 2020.3.30 (exactly this version) when using Rival. This is the version recommended by Unity for all DOTS projects until further notice
 
 Here are the recommended first steps you should take with Rival: 
 1. Finish reading this whole page
 1. Install the [Samples](./samples.md) project (installation details are on the Samples page) and play around with the various samples.
 1. Follow the [Tutorial](./tutorial.md) from start to finish. This will show you how to setup a DOTS project correctly, and teach you how to create characters with Rival.
+
+The rest of the contents of this documentation website is mostly meant to be consulted on a need-to basis
 
 
 ## Using the Standard Characters & Cameras

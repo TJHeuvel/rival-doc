@@ -28,7 +28,3 @@ We will now add our character to the scene and set up its references.
 If you try pressing Play now, you should be able to control your new character
 
 ![](../Images/tutorial_firstplay.gif)
-
-For more details on the standard character & camera setup, visit the following pages:
-* [Third Person Character](../StandardCharacters/stdcharacters-thirdperson.md) 
-* [DOTS Camera Setup](../StandardCharacters/stdcharacters-maincamera.md)

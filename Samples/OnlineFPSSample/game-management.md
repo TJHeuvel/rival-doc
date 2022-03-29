@@ -7,19 +7,23 @@ The `OnlineFPSMenu` scene contains a simple gameObject-based UI where you can ei
 
 Depending on if we are joining or hosting, we use methods from `SamplesBootstrap` in order to create NetCode's client or server worlds (or both). After creating the required ECS worlds, we handle listening or connecting to the right IP, and we load the `OnlineFPS` scene.
 
-## Client connection request
-A `MapIsLoaded` component is present in the `OnlineFPS` scene. The `ClientGameSystem` waits for this component to exist in order to determine when the scene is actually fully loaded. Once this is done, it sends an `RPCJoinGameRequest` RPC to the server asking to officially join the game as a player.
+## Game Management
+`GameManagementSystems.cs` contains several systems that handle various aspect of managing the game flow (initialization, spawning, death, etc...). The following is a description of the main jobs scheduled by each system:
 
-## Server connection request reception and player setup
-When the server receives a `RPCJoinGameRequest` from a client in `ServerGameSystem`, it spawns a Player ghost entity for that client, and creates a `CharacterSpawnRequest` for that player. We separate the concepts of "Player" and "Character", because a player persists even when a character dies and respanws. You can think of the "Character" as the current thing that the "Player" controls.
+`CommonGameSystem` (handles both client and server logic)
+- `PlayerControlledCharacterSetupJob`: Whenever we detect a change in a player's controlled character entity, we do the initial setup for that character (remember its `OwningPlayer`)
 
-## Character spawning & respawning
-Character spawning is handled bythe `CharacterSpawningSystem`. This waits for `CharacterSpawnRequest` entities to be created, and spawns a character assigned to the desired player for each request. `CharacterDeathSystem` handles destroying the character entity and initiating the respawn sequence by creating a new `CharacterSpawnRequest` with a timer. 
+`ClientGameSystem` (handles client logic)
+- `ClientJoinGameRequestJob`: If the local connection is not marked with a `NetworkStreamInGame` component, send an RPC to the server asking to stream this connection in game
+- `ClientInitSpawnedCharactersJob`: Initialized character entities without an `IsInitialized` component. We spawn a nameplate, and if it's the local-owned character, we disable its render meshes and add the `MainEntityCamera` component to the character view (this makes the GameObject camera copy that entity's transform)
+- `DisplayRespawnTimerJob`: Handles showing the respawn countdow screen when we receive a certain RPC from server
+- `ClientDisconnectJob`: Handles returning to menu scene upon disconnection
+- `ClientCharacterDeathSparksJob`: Handles spawning VFX upon receiving a  character death RPC from server
 
-## Client player & character setup
-The `ClientGameSystem` iterates on character & player entities that don't have any `IsInitialized` components. For uninitialized player entities, it adds a `OnlineFPSPlayerInputs` component to them, and sets that entity as the commands target entity. For uninitialized character entities, it spawns a gameObject-based nameplate over the character.
+`ServerGameSystem` (handles server logic)
+- `ConnectionSetupJob`: Handles remembering the various entities owned by each connection, via the `ConnectionOwnedEntity` buffer
+- `ServerHandleClientJoinJob`: Handle client requests to jon the game; spawns a Player and Character prefab for that connection, and stream connection in game
+- `ServerOnClientDisconnectJob`: Handles what happens when a client disconnects: clean up all of that client's owned entities
+- `ServerSpawnCharactersJob`: Processes all `CharacterSpawnRequest`s. This sets up a character with a weapon properly
+- `ServerDetectCharacterDeathJob`: Detects when a character dies, sends an RPC to clients for spawning death VFX, and creates a `CharacterSpawnRequest` with a timer to eventually respawn the character
 
-## Disconnection
-In `ClientGameSystem`, when we detect that our `NetworkIdComponent` representing the connection to the server has disconnected (when there is a `NetworkStreamDisconnected` on that connection entity), we simply reload the menu scenes
-
-In `ServerGameSystem`, when we detect that a client connection has disconnected similarly, we go thorough all entities that have been registered as belonging to that connection in the `ConnectionOwnedEntity` DynamicBuffer on that connection entity, and we destroy them. That way, the Character and Player entities of disconnected clients get cleaned up.
