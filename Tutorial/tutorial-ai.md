@@ -35,7 +35,7 @@ using Unity.Physics.Systems;
 using Unity.Transforms;
 using Rival;
 
-public class AIControllerSystem : SystemBase
+public partial class AIControllerSystem : SystemBase
 {
     protected override void OnUpdate()
     {
@@ -45,7 +45,7 @@ public class AIControllerSystem : SystemBase
 
         Entities
             .WithDisposeOnCompletion(distanceHits) // Dispose the list when the job is done
-            .ForEach((ref ThirdPersonCharacterInputs characterInputs, in AIController aiController, in ThirdPersonCharacterComponent character, in Translation translation) => 
+            .ForEach((ref ThirdPersonCharacterInputs characterInputs, in AIController aiController, in ThirdPersonCharacterComponent character, in Translation translation) =>
             {
                 // Clear our detected hits list between each use
                 distanceHits.Clear();
@@ -69,7 +69,7 @@ public class AIControllerSystem : SystemBase
                     Entity hitEntity = distanceHits[i].Entity;
 
                     // If it has a character component but no AIController component, that means it's a human player character
-                    if(HasComponent<ThirdPersonCharacterComponent>(hitEntity) && !HasComponent<AIController>(hitEntity))
+                    if (HasComponent<ThirdPersonCharacterComponent>(hitEntity) && !HasComponent<AIController>(hitEntity))
                     {
                         selectedTarget = hitEntity;
                         break; // early out

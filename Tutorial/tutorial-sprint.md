@@ -2,7 +2,7 @@ Back to [Tutorial](../tutorial.md)
 
 # Tutorial - Sprint
 
-We will now add a Sprint functionality to the character. When pressing the LeftShift, we want to apply a multiplier to our character velocity.
+We will now add a Sprint functionality to the character. When pressing the LeftShift key, we want to apply a multiplier to our character velocity.
 
 First, we will modify the `ThirdPersonCharacterInputs` component to add a field for Sprint input.
 
@@ -79,7 +79,7 @@ Finally, we have to modify the way our character handles velocity in `ThirdPerso
                 targetVelocity *= ThirdPersonCharacter.SprintSpeedMultiplier;
             }
 
-            CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, ThirdPersonCharacter.GroundedMovementSharpness, DeltaTime, GroundingUp, CharacterBody.GroundHit.Normal);
+            CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, ThirdPersonCharacter.GroundedMovementSharpness, DeltaTime, ThirdPersonCharacter.GroundingUp, CharacterBody.GroundHit.Normal);
 
         // (...)
 }

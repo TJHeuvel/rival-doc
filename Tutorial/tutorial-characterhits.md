@@ -21,7 +21,7 @@ using Rival;
 // Update in the fixed step group, and AFTER the character update
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 [UpdateAfter(typeof(KinematicCharacterUpdateGroup))]
-public class CharacterHitsDetectionSystem : SystemBase
+public partial class CharacterHitsDetectionSystem : SystemBase
 {
     protected override void OnUpdate()
     {

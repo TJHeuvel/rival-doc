@@ -19,10 +19,10 @@ public struct CharacterFrictionSurface : IComponentData
 Then, we need to make that component accessible from our `ThirdPersonCharacterProcessor`. Here's how we can pass extra data to our processor:
 - Add a `public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `ThirdPersonCharacterProcessor` struct
 - Add a `[ReadOnly] public ComponentDataFromEntity<CharacterFrictionSurface> CharacterFrictionSurfaceFromEntity;` field to the `ThirdPersonCharacterJob` struct
-- Make `ThirdPersonCharacterSystem` pass that `ComponentDataFromEntity` to the `ThirdPersonCharacterJob`
+- Make `ThirdPersonCharacterMovementSystem` pass that `ComponentDataFromEntity` to the `ThirdPersonCharacterJob`
 - Make `ThirdPersonCharacterJob` pass that `ComponentDataFromEntity` to the `ThirdPersonCharacterProcessor`
 
-In short, when we need to add extra data access in `ThirdPersonCharacterProcessor`, we make our `ThirdPersonCharacterSystem` pass that data to the `ThirdPersonCharacterJob`, which in turn passes that data to the `ThirdPersonCharacterProcessor` in its update loop.
+In short, when we need to add extra data access in `ThirdPersonCharacterProcessor`, we make our `ThirdPersonCharacterMovementSystem` pass that data to the `ThirdPersonCharacterJob`, which in turn passes that data to the `ThirdPersonCharacterProcessor` in its update loop.
 
 ```cs
 public struct ThirdPersonCharacterProcessor : IKinematicCharacterProcessor
@@ -37,7 +37,7 @@ public struct ThirdPersonCharacterProcessor : IKinematicCharacterProcessor
 
 ```cs
 [UpdateInGroup(typeof(KinematicCharacterUpdateGroup))]
-public class ThirdPersonCharacterSystem : SystemBase
+public class ThirdPersonCharacterMovementSystem : SystemBase
 {
     [BurstCompile]
     public struct ThirdPersonCharacterJob : IJobEntityBatchWithIndex
@@ -107,7 +107,7 @@ public void HandleCharacterControl()
             targetVelocity *= CharacterFrictionSurfaceFromEntity[CharacterBody.GroundHit.Entity].VelocityFactor;
         }
 
-        CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, ThirdPersonCharacter.GroundedMovementSharpness, DeltaTime, GroundingUp, CharacterBody.GroundHit.Normal);
+        CharacterControlUtilities.StandardGroundMove_Interpolated(ref CharacterBody.RelativeVelocity, targetVelocity, ThirdPersonCharacter.GroundedMovementSharpness, DeltaTime, ThirdPersonCharacter.GroundingUp, CharacterBody.GroundHit.Normal);
 
         // Jump
         // (...)
@@ -116,8 +116,6 @@ public void HandleCharacterControl()
     {
         // (...)
     }
-    
-    // (...)
 }
 ```
 

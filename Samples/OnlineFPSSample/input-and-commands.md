@@ -2,8 +2,8 @@ Back to [Samples](../../samples.md)
 
 # OnlineFPS Sample - Input and Player Commands
 
-`OnlineFPSPlayerInputsSystem` gathers input from Unity's input system, and writes those inputs to all `OnlineFPSPlayerInputs` components present in the world.
+`OnlineFPSPlayerCommandsSystem` gathers input from Unity's input system, and writes those inputs directly into a buffer of `OnlineFPSPlayerCommands`
 
-`OnlineFPSPlayerCommandsSystem` reads raw input from the `OnlineFPSPlayerInputs` components, and converts them to commands that are added to the `OnlineFPSPlayerCommands` DynamicBuffer. 
+However, we check in the `OnlineFPSPlayerCommands` buffer if there already were commands written for the current tick. If so, we will "merge" these commands together rather than simply overwriting them. We do this in order to avoid having some input "fall between ticks". It's a concept that's similar to how we must handle input in an offline game where input-dependent logic must be processed on fixed update.
 
-This separation of input handling in two separate phases ("player" inputs and "commands") is done so that AI characters can easily be supported, and also because in a real game, not all local player inputs should necessarily be part of the commands that are sent over network (ex: input related to opening menus, etc...).
+Later, in the prediction update, a `OnlineFPSPlayerControlSystem` will read those commands and control characters, aiming & weapons with them
