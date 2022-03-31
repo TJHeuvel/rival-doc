@@ -17,6 +17,8 @@ Press Play, and try to push it. Play with the masses of the character and the bo
 
 ![](../Images/tutorial_enable_dynamic.gif)
 
+Note: If you want your character to be able to stand on a dynamic rigidbody & follow its movement, simply add a `TrackedTransformAuthoring` to that rigidbody entity. We will elaborate more on this in the tutorial section on moving platforms
+
 For more details on dynamic mode for characters, see [Dynamic Body Interaction](../How_To/dynamic-body-interaction.md)
 
 
