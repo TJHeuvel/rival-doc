@@ -5,7 +5,7 @@ Back to [Tutorial](../tutorial.md)
 
 We will now go over the implementation of very rudimentary AI characters. We want to have characters that detect human-controlled characters at a distance, and start moving towards them as long as they are in their detection range. We will also demonstrate how we can structure things so that we don't have to create an entirely new character controller for AIs, and we can simply reuse the same that our player character uses.
 
-Let's first create our `AIController` component:
+Let's first create our `AIController` component. This component represents an "AI Brain" that controls a specific character:
 ```cs
 using System;
 using Unity.Collections;
@@ -23,7 +23,7 @@ public struct AIController : IComponentData
 }
 ```
 
-And now the `AIControllerSystem`:
+And now the `AIControllerSystem`. This system iterates on entities that have `AIController` and character components, handles detecting player characters, and handles setting character inputs that would make the AI character move towards detected player characters:
 ```cs
 using Unity.Burst;
 using Unity.Collections;

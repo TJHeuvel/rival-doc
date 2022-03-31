@@ -5,8 +5,6 @@ In this tutorial, we will go through the entire process of creating a new charac
 
 The tutorial can be followed without downloading the final project, but the completed tutorial project can be downloaded here (Note that **you will need to import Rival** into the project for this to work): [Download](./Downloads/Rival_Tutorial.zip)
 
-This tutorial is verified with Unity 2020.3 and Rival v0.3
-
 Note: Throughout this tutorial, the code samples will often have chunks of excluded code in order to show only the important parts that you need to add or modify. The `// (...)` represents excluded code.
 
 

@@ -13,11 +13,11 @@ Predicted character networking typically requires the following data to be synch
 * `KinematicCharacterBody.IsGrounded`
 * `KinematicCharacterBody.ParentEntity` (only necessary if you use the ParentEntity mechanism in your game, like for moving platforms)
 
-The rest of the fields in `KinematicCharacterBody` typically don't need to be synchronized unless you manually modify them. For example, you don't need to synchronize `KinematicCharacterBody.EvaluateGrounding` unless you manually set it to a different value at some points in your code. This field doesn't change by itself otherwise.
+The rest of the fields in `KinematicCharacterBody` typically don't need to be synchronized unless you manually modify them at runtime. For example, you don't need to synchronize `KinematicCharacterBody.EvaluateGrounding` unless you manually set it to a different value at some points in your code. This field doesn't change by itself otherwise.
 
 Several other fields of `KinematicCharacterBody`, such as `GroundHit`, `WasGroundedBeforeCharacterUpdate`, `ParentVelocity`, `PreviousParentEntity`, etc... are all calculated entirely during the frame, and therefore never need to be synchronized. However, you need to make sure that none of your game code accesses those values before `KinematicCharacterUtilities.InitializationUpdate` has run (this is where they are reset).
 
-And finally, you must synchronize any field in your own custom character components that are important to the character's "state" (the fields that are needed at the beginning of the character update in order to always give the same outcome, and that can change during the game).
+And finally, you must synchronize any field in your own custom character components that are important to the character's "state" (the fields that are needed at the beginning of the character update in order to always give the same outcome, and that can change during the game). For example, in the standard first-person character, the `FirstPersonCharacterComponent.ViewPitchDegrees` field should be synchronized because the character's view rotation depends on this value
 
 
 ## Prediction loop

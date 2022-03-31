@@ -39,7 +39,7 @@ using Unity.Physics.Systems;
 using Unity.Transforms;
 using Rival;
 
-// Update after physics but before characters
+// Update after events processing system 
 [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
 [UpdateAfter(typeof(StatefulTriggerEventBufferSystem))]
 public partial class JumpPadSystem : SystemBase

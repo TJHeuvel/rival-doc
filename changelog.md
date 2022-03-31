@@ -8,17 +8,17 @@
 
 **Upgrade Tips:**
 - The changes in this version are pretty significant and specific. For this reason, if you need to upgrade, you should consider perhaps using the updated standard characters as a starting point and re-copying your current character's implementation into them. It's not very ideal, but it could end up being less trouble than the alternative of trying to manually upgrade your existing character. Regardless, the necessary upgrade steps are described below
-- All upgrade steps for DOTS 0.50 in general will apply to your project. Please refer to this page for details: https://docs.unity3d.com/Packages/com.unity.entities@0.50/manual/upgrade-guide.html. The main points are: 
+- All upgrade steps for DOTS 0.50 in general will apply to your project. [Please refer to this page for details](https://docs.unity3d.com/Packages/com.unity.entities@0.50/manual/upgrade-guide.html). The main points are: 
     - All systems must have the `partial` keyword
-    - Systems that deal with physics shuould use the new functions for handling dependencies (`RegisterPhysicsRuntimeSystemReadWrite()`) in `OnStartRunning()`, instead of handling these manually
-    - Remove the `ENABLE_HYBRID_RENDERER_V2` scripting define
-- All Rival characters now have a new `StoredKinematicCharacterBodyProperties` component on them (automatically added through the `KinematicCharacterUtilities.HandleConversionForCharacter()` function). That component is used in some `KinematicCharacterUtilities` functions, and so you must add a `[ReadOnly] public ComponentDataFromEntity<StoredKinematicCharacterBodyProperties> StoredKinematicCharacterBodyPropertiesFromEntity;` to your existing character update jobs, and then pass it to your character processor, and plug it in the right places (let the error messages guide you). You can look for all places where `StoredKinematicCharacterBodyProperties` is used in the standard characters, and copy that.
+    - Systems that deal with physics should use the new functions for handling dependencies (`RegisterPhysicsRuntimeSystemReadWrite()`) in `OnStartRunning()`, instead of handling these manually
+    - Remove the `ENABLE_HYBRID_RENDERER_V2` scripting defineeeeeee
+- In order to fix a potential case of non-determinism, all Rival characters now have a new `StoredKinematicCharacterBodyProperties` component on them (automatically added through the `KinematicCharacterUtilities.HandleConversionForCharacter()` function). That component is used in some `KinematicCharacterUtilities` functions, so you must add a `[ReadOnly] public ComponentDataFromEntity<StoredKinematicCharacterBodyProperties>  StoredKinematicCharacterBodyPropertiesFromEntity;` to your existing character update jobs, and then pass it to your character processor, and plug it in the right places (let the error messages guide you). You can look for all places where `StoredKinematicCharacterBodyProperties` is used in the standard characters, and use that as a reference. This replaces what used to be a `ComponentDataFromEntity<KinematicCharacterBody>` in the character System and Processor
 - A `StoreKinematicCharacterBodyPropertiesSystem` must now update directly before all Rival characters. This will work automatically if you use the `KinematicCharacterUpdateGroup` for your character update system, but if you're not using it, you might have to copy that system and add it to your own update loop before your character systems
 - In the character body inspector, character interpolation will now be set to interpolate only translation by default; not rotation. You might need to activate rotation interpolation if you were handling rotation in a fixed step job 
 
 
 **Changes:**
-- Upgraded DOTS packages (Entities, Physics, Hybrid Renderer, Netcode) to 0.50
+- Upgraded DOTS packages (Entities, Physics, Hybrid Renderer, Netcode) to 0.50, and removed DOTS Animation package
 - The `CharacterInterpolation` component now has separate options for interpolating translation and rotation, which means there are now two separate checkboxes in the character body inspector for interpolation. By default, only translation interpolation is active, since the rotation of standard characters is updated at a variable rate now
 - Physics dependency handling for character systems now use the new `RegisterPhysicsRuntimeSystemReadWrite()` approach
 - Added a `FixedUpdateTickSystem` to the standard characters packages, to help deal with the complexities of input handling processed on fixed update. This system is used in the "PlayerSystems" of both standard characters
@@ -30,7 +30,7 @@
 
 
 **Fixes:**
-- Fixed a potential case of non-determinism in the standard characters, which could happen during character-to-character collisions
+- Fixed a potential case of non-determinism in the standard characters, which could happen during character-to-character collisions. The non-determinism was due to reading character velocity of other characters in the same job that modifies the velocity of a character. The switch to using a `ComponentDataFromEntity<StoredKinematicCharacterBodyProperties>` is due to this
 
 
 **Known Issues:**
