@@ -27,7 +27,7 @@ Let's take a closer look at how this happens in code:
 1. in the `ThirdPersonCharacterJob`, we build a `ThirdPersonCharacterProcessor` struct with all the data it needs, and call `OnUpdate()` on it. The character processor is essentially a single place where you implement the character movement logic and have access to all the data you need.
 1. in the `ThirdPersonCharacterProcessor.OnUpdate()`, we have all the various steps required for character control. The part that you are most likely to want to modify & customize is `HandleCharacterControl()`. This is where you tell the character which velocity it should have right now.
 1. the default code in `ThirdPersonCharacterProcessor.HandleCharacterControl()` reads from `ThirdPersonCharacterInputs` (the component our Player system was writing its inputs to), and controls the velocity accordingly
-1.`ThirdPersonCharacterRotaionSystem` updates at a variable timestep, and handles all character rotation. The reason why this is in a separate system is because rotation input does not feel responsive enough when it is updated at a fixed timestep, even if it's interpolated.
+1. `ThirdPersonCharacterRotaionSystem` updates at a variable timestep, and handles all character rotation. The reason why this is in a separate system is because rotation input does not feel responsive enough when it is updated at a fixed timestep, even if it's interpolated.
 
 ### Camera
 1. `OrbitCameraSystem` reads from `OrbitCameraInputs` (the component our Player system was writing its inputs to), and moves the camera accordingly while always staying anchored to its `orbitCamera.FollowedCharacterEntity`
