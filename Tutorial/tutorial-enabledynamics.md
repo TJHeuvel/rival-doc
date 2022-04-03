@@ -11,7 +11,7 @@ In order to enable dynamic mode on the character, there are three things to do:
 
 Next, we need to add a dynamic box to the scene, in order to push it with our character:
 - In your Subscene, make sure you have a GameObject with the `PhysicsStep` component on it. This enables DOTS physics simulation [[Screenshot]](../Images/tutorial_physicsstep.png)
-- Add a cube to your Subscene, and add a `PhysicsBody` and `PhysicsShape` to it, correctly set-up for being a dynamic body with Interpolation [Screenshot]](../Images/tutorial_physicsbox.png)
+- Add a cube to your Subscene, and add a `PhysicsBody` and `PhysicsShape` to it, correctly set-up for being a dynamic body with Interpolation [Screenshot](../Images/tutorial_physicsbox.png)
 
 Press Play, and try to push it. Play with the masses of the character and the box to see how different mass ratios affect the pushing.
 
