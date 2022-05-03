@@ -3,6 +3,22 @@
 
 [Previous Versions](./Changelog/changelog-archive.md)
 
+## v0.4.1
+
+**Upgrade Tips:**
+- If you use code that sets the character's `ParentEntity`, you must now also remember to set a `ParentAnchorPoint` (in `KinematicCharacterBody`)
+
+
+**Changes:**
+- update to Entities 0.50.1-preview.2 and Physics 0.50.0-preview 43
+- Added a `ParentAnchorPoint` field to `KinematicCharacterBody`
+
+
+**Fixes**
+- Fixed selection of best ground hit when there are multiple candidates
+- Fixed computation of momentum added by leaving a moving parent object
+
+
 
 ## v0.4
 
