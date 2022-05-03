@@ -15,7 +15,8 @@
 
 
 **Fixes**
-- Fixed selection of best ground hit when there are multiple candidates
+- Fixed issues related to having character standing on small dynamic spheres, especially if the character has an elongated horizontal collider shape
+- Fixed selection of best ground hit when there are multiple candidates, in order to prevent character from applying ground pushing to non-grounded overlapping rigidbodies
 - Fixed computation of momentum added by leaving a moving parent object
 
 
