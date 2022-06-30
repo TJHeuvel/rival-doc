@@ -1,14 +1,5 @@
 
-# Tips
-
-## Particularities
-* Always make sure the root character entity has (1,1,1) scale. You are allowed to scale child entities though
-* The character entity (the one with the `KinematicCharacterBody` component) must never be a child of another entity
-* All physics bodies that the character can stand on, or all bodies that can be set as the character's `ParentEntity`, must have a `TrackedTransform` component in order to work properly
-* You must enable the `SynchronizeCollisionWorld` option on the PhysicsStep component if you want to eliminate jitter and visual lag when moving against other moving bodies
-
-
-## Performance Tips
+# Performance Tips
 
 - **Convex level colliders and low collider polygon counts**: For the level geometry, use convex collider shapes whenever possible, and make sure your non-convex colliders have as little polygons as possible. It is standard practice in games to create simplified collision meshes for mesh objects.
 - **Disabling the physics step**: This character doesn't need any physics step in order to function properly. You can safely set the "Simulation Type" to "None" on the Physics Step component, if you don't need any physics step for physics bodies other than characters.

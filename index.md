@@ -31,4 +31,6 @@ See [Core](./core.md) for an in-depth overview of the core components & systems.
 
 See [How To](./how-to.md) for explanations on how to implement various character features.
 
-See [Tips](./tips.md) for a list of particularities to be aware of, and performance tips.
+See [Performance Tips](./tips.md) for a list performance tips.
+
+See [Limitations](./limitations.md) for a list of character controller limitations to be aware of.
