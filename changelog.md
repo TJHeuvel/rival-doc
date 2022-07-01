@@ -7,8 +7,21 @@
 ## v0.5.0
 
 **Upgrade Tips:**
-- The parameters of the `OverrideDynamicHitMasses` processor callback have changed
-- The parameters of the `KinematicCharacterUtilities.DefaultMethods.UpdateGroundPushing` function have changed
+- The parameters of the `OverrideDynamicHitMasses` processor callback have changed. Keep in mind that you'll now be working with "inverse masses" (1 / mass) instead of masses. The implemented interface function in your processor should now look like this:
+```cs
+public void OverrideDynamicHitMasses(
+    ref PhysicsMass characterMass,
+    ref PhysicsMass otherMass,
+    Entity characterEntity,
+    Entity otherEntity,
+    int otherRigidbodyIndex)
+{
+}
+```
+- The parameters of the `KinematicCharacterUtilities.DefaultMethods.UpdateGroundPushing` function have changed. In the standard characters, the function call should now look like this:
+```cs
+KinematicCharacterUtilities.DefaultMethods.UpdateGroundPushing(ref this, ref CharacterDeferredImpulsesBuffer, ref CharacterBody, DeltaTime, Entity, ThirdPersonCharacter.Gravity, Translation, Rotation, 1f);
+```
 
 
 **Changes:**
