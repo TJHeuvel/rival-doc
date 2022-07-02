@@ -24,6 +24,7 @@ And finally, you must synchronize any field in your own custom character compone
 
 In order to include the character logic in DOTS NetCode's prediction loop, the following steps are necessary:
 * The character system must update in the `GhostPredictionSystemGroup`
+* Don't forget to also include the `StoreKinematicCharacterBodyPropertiesSystem` in the prediction group. This system must update before your character systems
 * The CollisionWorld used by the character update must be a collision world that represents the world at the time where the predicting tick happened. In DOTS Netcode, this can happen automatically if you have [Physics Prediction](https://docs.unity3d.com/Packages/com.unity.netcode@0.50/manual/physics.html#predicted-ghosts) setup correctly
 * If using DOTS Netcode, make sure to calk `GhostPredictionSystemGroup.ShouldPredict` before running the character update. We must only update the character logic if we must predict.
 * Make sure to use the player commands from the predicted tick as inputs for the character movement.
