@@ -25,7 +25,7 @@ Here are the steps required in order to install the Rival Samples project:
 
 ![](../Images/samples-install-input-both.png)
 
-* A popup will appear saying the editor must be restarted. Click "Apply" to restart (it is important to restart now before going any further)
+* Depending on your Unity version, a popup may appear saying the editor must be restarted. If you get the popup, click "Apply" to restart. If you don't get the popup, it is advised to restart Unity anyway just to be sure (it is important to restart now before going any further)
 
 ![](../Images/samples-install-input-both-restart.png)
 
