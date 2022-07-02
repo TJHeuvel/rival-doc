@@ -30,7 +30,7 @@ Here are the steps required in order to install the Rival Samples project:
 ![](../Images/samples-install-input-both-restart.png)
 
 * After the restart, go to the “Assets/Rival/Samples” folder, and open “RivalSamples.unitypackage” by double-clicking on it inside Unity's "Project" window. 
-* A popup will appear saying this package will overwrite all project settings: click "Import"
+* A popup will appear saying this package will overwrite all project settings: click "Import" (Note: depending on your Unity version, you may get a version of this popup without the "Switch Project" option displayed on this screenshot. You can still just go with the "Import" option)
 
 ![](../Images/samples-install-overwrite-settings-popup.png)
 

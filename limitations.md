@@ -10,7 +10,7 @@
 
 ## Dynamic Physics Interactions
 
-Dynamic physics interactions (pushing and being pushed by dynamic rigidbodies) are the area where a kinematic character controller will have the most limitations, as opposed to a character controller implemented fully with rigidbody physics. However, a dynamic rigidbody character controller would have plenty of different limitations of it own (mostly related to control & quality of movement and collision solving), and so the choice of kinematic VS dynamic characters is always a choice of trade-offs.
+Dynamic physics interactions (pushing and being pushed by dynamic rigidbodies) are an area where a kinematic character controller will have the most limitations, as opposed to a character controller implemented fully with rigidbody physics. However, a dynamic rigidbody character controller would have plenty of different limitations of its own (limited control over movement and collision-solving), so the choice of kinematic VS dynamic characters is always a choice of trade-offs.
 
 Rival offers support for [dynamic rigidbody interactions](./How_To/dynamic-body-interaction.md), which tries to immitate the behaviour of a fully dynamic character. There are, however, some limitations:
 
