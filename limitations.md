@@ -6,11 +6,11 @@
 * The root character entity must always have a (1,1,1) scale. You are allowed to scale child entities though
 * The root character entity must never be a child of another entity. However, Rival comes with a mecanism to [immitate parenting for characters](./How_To/parenting.md) 
 * All physics bodies that the character can stand on, or all bodies that can be set as the character's `ParentEntity`, must have a `TrackedTransform` component in order to work properly
-* You must enable the `SynchronizeCollisionWorld` option on the PhysicsStep component if you want to eliminate jitter and visual lag when moving against other moving bodies
+* You must enable the `SynchronizeCollisionWorld` option on the PhysicsStep component if you want to eliminate a small visual lag when moving against other moving bodies
 
 ## Dynamic Physics Interactions
 
-Dynamic physics interactions (pushing and being pushed by dynamic rigidbodies) are an area where a kinematic character controller will have the most limitations, as opposed to a character controller implemented fully with rigidbody physics. However, a dynamic rigidbody character controller would have plenty of different limitations of its own (limited control over movement and collision-solving), so the choice of kinematic VS dynamic characters is always a choice of trade-offs.
+Dynamic physics interactions (pushing and being pushed by dynamic rigidbodies) are an area where a kinematic character controller will have the most limitations, when compared to a character controller implemented fully with rigidbody physics. However, a dynamic rigidbody character controller would have plenty of different limitations of its own (limited control over movement and collision-solving), so the choice of kinematic VS dynamic characters is always a choice of trade-offs.
 
 Rival offers support for [dynamic rigidbody interactions](./How_To/dynamic-body-interaction.md), which tries to immitate the behaviour of a fully dynamic character. There are, however, some limitations:
 
