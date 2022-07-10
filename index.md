@@ -2,8 +2,6 @@
 
 ![](./Images/logo.png)
 
-NOTE: Currently, you must use Unity 2020.3.30 (exactly this version) when using Rival. This is the version recommended by Unity for all DOTS projects until further notice
-
 Here are the recommended first steps you should take with Rival: 
 1. Finish reading this whole page
 1. Install the [Samples](./samples.md) project (installation details are on the Samples page) and play around with the various samples.
