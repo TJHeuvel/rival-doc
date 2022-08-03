@@ -39,3 +39,10 @@ KinematicCharacterUtilities.DefaultMethods.UpdateGroundPushing(ref this, ref Cha
 - `KinematicCharacterUtilities.DefaultMethods.UpdateGroundPushing` now properly takes into account masses overriden by `OverrideDynamicHitMasses`
 - Fixed jitter when a kinematic character was pushing a dynamic rigidbody
 - fixed velocity projection issue that could result in our character staying stuck on the edge of a rolling sphere 
+
+
+**Known Issues:**
+- The [HideInInspector] attribute no longer seems to work, meaning some fields in authoring components that are meant to be hidden will now appear in the inspector. For example: the `FirstPersonPlayerAuthoring` component has a visible `Last Inputs Processing Tick` field that should normally not be visible
+- [Platformer Sample] The animation for "standing up from a ledge grab" is not properly implemented. The real implementation would require root motion, so it will be done at a later date when the DOTS Animation package is availabe once again and offers support for root motion
+- [OnlineFPS Sample] The game is capped out at 100 fps for the time being. Otherwise, if the framerate becomes much higher than the tickrate of 60, there is [a spam of warnings in editor and in build that severely affect the framerate](https://forum.unity.com/threads/server-world-allocations-live-too-long-in-0-50-preview-29.1254225/) . This appears to be an issue with the Netcode package that should be solved in future versions
+- [OnlineFPS Sample] Player input will fail to be processed on some frames, once in a while. This might be the cause of remote player rotations looking a bit jittery, and local player rotation feeling slightly off. It can also result in shoot/jump inputs failing to be processed sometimes. This appears to be an issue related to [remote player prediction in the Netcode package](https://forum.unity.com/threads/commands-issue-when-trying-to-use-remote-players-prediction.1259031/#post-7999692), but more investigation is needed in order to confirm
