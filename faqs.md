@@ -35,7 +35,7 @@ The characters in the Samples project are meant to demonstrate the customization
 It uses a kinematic rigidbody. However, it can optionally have a mode where it immitates a dynamic body by manually detecting contacts with other physics bodies and applying velocity changes on itself. The end result is a kinematic character controller that can have a high level of interaction with dynamic bodies. It can smoothly push or be pushed by other dynamic bodies.
 
 ## Does this character controller support standing on moving physics bodies?
-Yes, it can stand on any physics body (kinematic, static, dynamic) and doesn't require them to be moved in any special way. All it requires is for a specific compoenent (TrackedTransform) to be added to the entities that the character should be able to stand on.
+Yes, it can stand on any physics body (kinematic, static, dynamic) and doesn't require them to be moved in any special way. All it requires is for a specific component (TrackedTransform) to be added to the entities that the character should be able to stand on.
 
 ## Is this character controller suitable for networked games?
 Yes. An Online FPS sample project is available, and it uses proper network prediction for the character. This FPS sample project uses DOTS NetCode, but any other networking solution could also be used.
